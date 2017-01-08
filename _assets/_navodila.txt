@@ -1,0 +1,13 @@
+@Luka Mis tole je variacija igre, ki je že bila pripravljena za naravoslovje. Učenci morajo poklikati ustrezne besede, ki padajo, na vrhu je zapisano, za katero osebo gre. Glede na osebo je potrebno zbrati pravilno obliko spreganega glagola. Spodaj immaš zapisano, kateri so pravilni odgovori za določeno osebo. Za različne osebe so lahko možni tudi enaki pravilni odgovori (npr. er, Sebastian, sie, Emma). Vrstni red naj bo naključen. Spada k lekciji 1.3.
+
+ich: spiele, bin, filme, mache, höre, programmiere, probe, koche, spreche, jogge, lerne, wohne, heiße, fotografiere, finde, mag, komme
+du: spielst, bist, filmst, machst, hörst, programmierst, probst, kochst, sprichst, joggst, lernst, wohnst, heißt, fotografierst, findest, magst, kommst
+er: spielt, ist, filmt, macht, hört, programmiert, probt, kocht, spricht, joggt, lernt, wohnt, heißt, fotografiert, findet, mag, kommt
+Sebastian: spielt, ist, filmt, macht, hört, programmiert, probt, kocht, spricht, joggt, lernt, wohnt, heißt, fotografiert, findet, mag, kommt
+sie: spielt, ist, filmt, macht, hört, programmiert, probt, kocht, spricht, joggt, lernt, wohnt, heißt, fotografiert, findet, mag, kommt
+Emma: spielt, ist, filmt, macht, hört, programmiert, probt, kocht, spricht, joggt, lernt, wohnt, heißt, fotografiert, findet, mag, kommt
+wir: spielen, sind, filmen, machen, hören, programmieren, proben, kochen, sprechen, joggen, lernen, wohnen, heißen, fotografieren, finden, mögen, kommen
+ich und Leo: spielen, sind, filmen, machen, hören, programmieren, proben, kochen, sprechen, joggen, lernen, wohnen, heißen, fotografieren, finden, mögen, kommen
+Emilia und Felix: spielen, sind, filmen, machen, hören, programmieren, proben, kochen, sprechen, joggen, lernen, wohnen, heißen, fotografieren, finden, mögen, kommen
+ihr: spielt, seid, filmt, macht, hört, programmiert, probt, kocht, sprecht, joggt, lernt, wohnt, heißt, fotografiert, findet, mögt, kommt
+Sie: spielen, sind, filmen, machen, hören, programmieren, proben, kochen, sprechen, joggen, lernen, wohnen, heißen, fotografieren, finden, mögen, kommen 
