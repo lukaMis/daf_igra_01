@@ -1,1 +1,59 @@
 
+
+.view {
+  position: absolute;
+  
+  width: 1024px;
+  height: 768px;
+
+  top: 0;
+  left: 0;
+
+  padding: 0 160px;
+
+  background-color: rgb(0, 0, 0);
+  text-align: center;
+
+  z-index: 1;
+}
+.view {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.view p {
+  font-style: normal;
+  font-size: 21px;
+  // line-height: 25px;
+  color: rgb(255, 255, 255);
+  position: relative;
+}
+.view p:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgb(255, 255, 255);
+  opacity: 0;
+}
+
+
+.view .annotation {
+  margin-bottom: 20px;
+  border: 1px solid red;
+}
+
+
+.view .button {
+  padding: 12px 16px;
+  background-color: rgb(83, 183, 232);
+  display: inline-block;
+  border-radius: 4px;
+  cursor: pointer;
+}

@@ -1,0 +1,94 @@
+{
+  
+  "gameData": [
+    {
+      "question" : "ich",
+      "answers" : [
+        "spiele", "bin", "filme", "mache", "höre", "programmiere", "probe", "koche", "spreche", "jogge", "lerne", 
+        "wohne", "heiße", "fotografiere", "finde", "mag", "komme"
+      ]
+    },
+    {
+      "question" : "du",
+      "answers" : [
+        "spielst", "bist", "filmst", "machst", "hörst", "programmierst", "probst", "kochst", "sprichst", "joggst", 
+        "lernst", "wohnst", "heißt", "fotografierst", "findest", "magst", "kommst"
+      ]
+    },
+    {
+      "question" : "er",
+      "answers" : [
+        "spielt", "ist", "filmt", "macht", "hört", "programmiert", "probt", "kocht", "spricht", "joggt", "lernt", 
+        "wohnt", "heißt", "fotografiert", "findet", "mag", "kommt"
+      ]
+    },
+    {
+      "question" : "Sebastian",
+      "answers" : [
+        "spielt", "ist", "filmt", "macht", "hört", "programmiert", "probt", "kocht", "spricht", "joggt", "lernt", 
+        "wohnt", "heißt", "fotografiert", "findet", "mag", "kommt"
+      ]
+    },
+    {
+      "question" : "sie",
+      "answers" : [
+        "spielt", "ist", "filmt", "macht", "hört", "programmiert", "probt", "kocht", "spricht", "joggt", "lernt", 
+        "wohnt", "heißt", "fotografiert", "findet", "mag", "kommt"
+      ]
+    },
+    {
+      "question" : "Emma",
+      "answers" : [
+        "spielt", "ist", "filmt", "macht", "hört", "programmiert", "probt", "kocht", "spricht", "joggt", "lernt", 
+        "wohnt", "heißt", "fotografiert", "findet", "mag", "kommt"
+      ]
+    },
+    {
+      "question" : "wir",
+      "answers" : [
+        "spielen", "sind", "filmen", "machen", "hören", "programmieren", "proben", "kochen", "sprechen", "joggen", 
+        "lernen", "wohnen", "heißen", "fotografieren", "finden", "mögen", "kommen"
+      ]
+    },
+    {
+      "question" : "ich und Leo",
+      "answers" : [
+        "spielen", "sind", "filmen", "machen", "hören", "programmieren", "proben", "kochen", "sprechen", "joggen", 
+        "lernen", "wohnen", "heißen", "fotografieren", "finden", "mögen", "kommen"
+      ]
+    },
+    {
+      "question" : "Emilia und Felix",
+      "answers" : [
+        "spielen", "sind", "filmen", "machen", "hören", "programmieren", "proben", "kochen", "sprechen", "joggen", 
+        "lernen", "wohnen", "heißen", "fotografieren", "finden", "mögen", "kommen"
+      ]
+    },
+    {
+      "question" : "ihr",
+      "answers" : [
+        "spielt", "seid", "filmt", "macht", "hört", "programmiert", "probt", "kocht", "sprecht", "joggt", "lernt", 
+         "wohnt", "heißt", "fotografiert", "findet", "mögt", "kommt"
+      ]
+    },
+    {
+      "question" : "Sie",
+      "answers" : [
+        "spielen", "sind", "filmen", "machen", "hören", "programmieren", "proben", "kochen", "sprechen", "joggen", "lernen", "wohnen", "heißen", "fotografieren", "finden", "mögen", "kommen"
+      ]
+    }
+  ],
+
+
+  "titleView" : {
+    "text" : "Klicke auf das rictige Verb.",
+    "button" : "Spielen"
+  },
+
+  "feedbackView" : {
+    "text" : "Sie haben *** Punkte erreicht!",
+    "button" : "Spielen"
+  }
+
+
+}

@@ -3,6 +3,8 @@
 // @prepros-append entry.js
 // @prepros-append DataHandler.js
 
+// @prepros-append TitleView.js
+
  // @prepros-append Controller.js
  
  // @prepros-append Bootstrap.js
