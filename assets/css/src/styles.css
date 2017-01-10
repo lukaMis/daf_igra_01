@@ -10,7 +10,7 @@
   padding: 0 160px;
   background-color: black;
   text-align: center;
-  z-index: 1; }
+  z-index: 0; }
 
 .view {
   display: -webkit-flex;
@@ -55,5 +55,42 @@
   border-radius: 4px;
   cursor: pointer; }
 
+#gameView {
+  background-color: orange; }
+
+#gameView {
+  display: block;
+  padding: 0px; }
+
 #feedbackView .annotation span {
   color: #53b7ff; }
+
+#infoBar {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  border-bottom: 1px solid red;
+  padding: 20px;
+  padding-bottom: 10px;
+  background-color: black;
+  position: absolute;
+  width: 100%;
+  z-index: 1; }
+
+#infoBar p,
+#infoBar p span {
+  color: white;
+  font-size: 21px; }
+
+#infoBar #question {
+  color: #53b7ff;
+  font-size: 25px; }

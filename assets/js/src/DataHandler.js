@@ -17,6 +17,10 @@ daf_igra_01.DataHandler = () => {
   instance.getFeedbackData = () => {
     return i18n.t('feedbackView', {returnObjectTrees:true});
   };
+  instance.getGameViewData = () => {
+    return i18n.t('gameView', {returnObjectTrees:true});
+  };
+
   
   console.log('DataHandler ready');
   return instance;

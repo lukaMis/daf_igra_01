@@ -1,1 +1,32 @@
 
+
+ #infoBar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  // justify-content: flex-start | flex-end | center | space-between | space-around;
+  // align-items: flex-start | flex-end | center | baseline | stretch;
+
+  justify-content: space-between;
+
+  border-bottom: 1px solid red;
+  padding: 20px;
+  padding-bottom: 10px;
+  background-color: rgba(0, 0, 0, 1);
+
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+}
+
+#infoBar p, 
+#infoBar p span {
+  color: rgb(255, 255, 255);
+  font-size: 21px;
+}
+
+#infoBar #question {
+  color: $blueColor;
+  font-size: 25px;
+}

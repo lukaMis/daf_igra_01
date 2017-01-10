@@ -5,6 +5,7 @@
 
 // @prepros-append TitleView.js
 // @prepros-append FeedbackView.js
+// @prepros-append InfoBar.js
 
  // @prepros-append Controller.js
  

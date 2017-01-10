@@ -28,6 +28,13 @@ daf_igra_01.Bootstrap = () => {
   });
 
 
+  const infoBar = daf_igra_01.InfoBar({
+    data : dataHandler.getGameViewData()
+  });
+  infoBar.init();
+  infoBar.setScore(0);
+
+
   // feedbacView.init();
   // titleView.init();
 

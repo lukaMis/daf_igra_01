@@ -88,7 +88,10 @@
   "feedbackView" : {
     "text" : "Sie haben *** Punkte erreicht!",
     "button" : "Spielen wieder"
-  }
+  },
 
+  "gameView" : {
+    "points" : "punkte"
+  }
 
 }
