@@ -4,6 +4,7 @@
 // @prepros-append DataHandler.js
 
 // @prepros-append TitleView.js
+// @prepros-append FeedbackView.js
 
  // @prepros-append Controller.js
  
