@@ -50,7 +50,10 @@
 
 .view .button {
   padding: 12px 16px;
-  background-color: #53b7e8;
+  background-color: #53b7ff;
   display: inline-block;
   border-radius: 4px;
   cursor: pointer; }
+
+#feedbackView .annotation span {
+  color: #53b7ff; }
