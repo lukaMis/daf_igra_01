@@ -13,11 +13,15 @@ daf_igra_01.Bootstrap = () => {
   const titleView = daf_igra_01.TitleView({
     data: dataHandler.getTitleData()
   });
-  $(titleView).on('onTitleViewClicked', () => {
+  $(titleView).on('onTitleViewClicked', (e) => {
     console.log('Start teh game');
   });
-  titleView.init();
 
+
+
+  
+
+  titleView.init();
 
 
   

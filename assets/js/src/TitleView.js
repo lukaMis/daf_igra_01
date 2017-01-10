@@ -12,7 +12,7 @@ daf_igra_01.TitleView = (dataObject) => {
     <div id="titleView" class="view">
       <div class="viewContent">
         <p class="annotation">${instance.data.text}</p>
-        <div class="button" onclick= "buttonClicked" >
+        <div class="button">
           <p>${instance.data.button}</p>
         </div>
       </div>
@@ -20,12 +20,16 @@ daf_igra_01.TitleView = (dataObject) => {
     `;
 
     $('#contentWrapper').append(viewString);
+    $('#contentWrapper #titleView .button').one('click', onButtonClick);
   };
 
 
-  function buttonClicked(e) {
-    console.log('CLICKED');
-  }
+  const onButtonClick = (e) => {
+    $(instance).trigger('onTitleViewClicked');
+    $('#contentWrapper #titleView').remove();
+  };
+
+
 
   /* API */
   instance.init = () => {
