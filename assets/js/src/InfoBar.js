@@ -10,7 +10,7 @@ daf_igra_01.InfoBar = (dataObject) => {
   
   let timerInterval;
   
-  let MAX_TIME = 10;
+  const MAX_TIME = dataObject.maxTime;
 
   const createView = () => {
     const template = 
@@ -20,7 +20,7 @@ daf_igra_01.InfoBar = (dataObject) => {
           <span id="m">00</span>:<span id="s">00</span>
         </p>
         <p id="question">QUESTION</p>
-        <p id="score"><span id="pointsInt">40</span> <span>${instance.data.points}</span></p>
+        <p id="score"><span id="pointsInt">0</span> <span>${instance.data.points}</span></p>
       </div>
       `;
     $('#contentWrapper').append(template);
@@ -51,7 +51,6 @@ daf_igra_01.InfoBar = (dataObject) => {
     } else {
       updateTimer(timerCounter);
     }
-
     timerCounter++;
   };
 

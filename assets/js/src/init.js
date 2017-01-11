@@ -7,6 +7,7 @@
 
   function oni18nComplete(e) {
     FastClick.attach(document.body);
+    console.log(daf_igra_01);
     daf_igra_01.Bootstrap();
   };
   

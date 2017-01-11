@@ -6,6 +6,9 @@
 // @prepros-append TitleView.js
 // @prepros-append FeedbackView.js
 // @prepros-append InfoBar.js
+// @prepros-append SpawnControl.js
+// @prepros-append TitleControl.js
+// @prepros-append GameControl.js
 
  // @prepros-append Controller.js
  
