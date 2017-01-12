@@ -24,7 +24,34 @@
       <div id="wrapper">
 
         <div id="devView">
-          
+          <form action="" method="get">
+            Game time  <input type="text" id="gameTime" name="" value="50"> (sec)
+            <br><br>
+            New question time  <input type="text" id="questionTime" name="" value="10"> (sec)
+            <br><br>
+            Answer spawn time  <input type="text" id="spawnTime" name="" value="1"> (sec)
+            <br><br>
+            Answer fall time  <input type="text" id="fallTime" name="" value="20"> (sec)
+            <br><br>
+            Answer max rotation  <input type="text" id="maxRotation" name="" value="20"> (deg)
+            <br><br>
+            Answer correct spawn %  <input type="text" id="spawnPercent" name="" value="50"> (%)
+            <br><br>
+
+            Points up for correct  <input type="text" id="pointsUp" name="" value="10">
+            <br><br>
+            Points down for wrong  <input type="text" id="pointsDown" name="" value="10">
+            <br><br>
+            Answer fall method <select id="fallMethod" name="fallMethod">
+                <option value="linear">linear</option>
+                <option value="ease">ease</option>
+                <option value="ease-out">ease-out</option>
+                <option value="ease-in">ease-in</option>
+              </select>
+              <br><br>
+            <!-- <input type="submit" value="Potrdi"> -->
+            <p id="submit">Potrdi</p>
+          </form>
         </div>
 
         <div id="contentWrapper">
@@ -89,6 +116,9 @@
 
       <!-- translation -->
       <script src="../assets/i18next/i18next.min.js"></script>
+
+      <!-- cookie -->
+      <script src="assets/js/js.cookie.js"></script>      
 
 
 

@@ -1,6 +1,6 @@
 
 
-.devView {
+#devView {
   position: absolute;
   
   width: 1024px;
@@ -11,10 +11,11 @@
 
   padding: 0 160px;
 
-  background-color: rgb(0, 0, 0);
+  // background-color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
   text-align: center;
 
-  z-index: 0;
+  z-index: 10;
 }
 .devView {
   display: flex;
@@ -25,12 +26,16 @@
 }
 
 
-.view p {
+#devView form {
   font-style: normal;
-  font-size: 21px;
+  font-size: 16px;
   // line-height: 25px;
   color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
   position: relative;
+
+  top: 50%;
+  transform: translateY(-50%);
 }
 .view p:after {
   content: "";
@@ -42,6 +47,26 @@
   background-color: rgb(255, 255, 255);
   opacity: 0;
 }
+
+
+#devView form input {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  padding-left: 10px;
+  font-size: 18px;
+  color: blue;
+}
+#devView form select {
+  color: blue;
+}
+
+#devView form #submit {
+  display: inline-block;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  padding: 4px 6px;
+  cursor: pointer;
+}
+
+
 
 
 .view .annotation {

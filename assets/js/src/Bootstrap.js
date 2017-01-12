@@ -41,12 +41,12 @@ daf_igra_01.Bootstrap = () => {
     spawnControl: spawnControl,
     feedbacView: feedbacView
   });
-  gameControl.init();
+  // gameControl.init();
 
 
 
   // feedbacView.init();
-  daf_igra_01.removePreloader();
+  // daf_igra_01.removePreloader();
 
 
   const titleView = daf_igra_01.TitleView({
@@ -55,8 +55,9 @@ daf_igra_01.Bootstrap = () => {
   $(titleView).on('onTitleViewClicked', (e) => {
     console.log('Start teh game');
     daf_igra_01.removePreloader();
+    gameControl.init();
   });
-  // titleView.init();
+  titleView.init();
 
   
   /* API */
