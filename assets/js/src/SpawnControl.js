@@ -10,8 +10,6 @@ daf_igra_01.SpawnControl = (dataObject) => {
   let arrayOfCorrectAnswers = [];
   let arrayOfWrongAnswers = [];
 
-  let counter = 0;
-
   let spawnInterval;
 
 
@@ -35,7 +33,6 @@ daf_igra_01.SpawnControl = (dataObject) => {
 
     populateArrays();
 
-    counter++;
     return GAME_DATA[daf_igra_01.CURRENT_ID].question;
   };
 
@@ -76,6 +73,16 @@ daf_igra_01.SpawnControl = (dataObject) => {
     spawn();
   };
 
+  const stopSpawn = () => {
+    clearInterval(spawnInterval);
+    removeSpawnedObjects();
+  };
+
+  const removeSpawnedObjects = () => {
+    $('#gameView .answer').each((index, answer) => {
+      removeAnswer( $(answer) );
+    });
+  };
 
   const spawn = () => {
     // let randomNumberToSpawnFrom = 0;
@@ -98,7 +105,7 @@ daf_igra_01.SpawnControl = (dataObject) => {
 
     // $('#gameView .answer').remove();
     // $('#gameView').append()
-    const answer = 
+    const answerString = 
     `
     <div class="answer" data-id="${idToAssign}">
       <div class="textWrapper">
@@ -106,7 +113,7 @@ daf_igra_01.SpawnControl = (dataObject) => {
       </div>
     </div>
     `;
-    $('#gameView').append(answer);
+    $('#gameView').append(answerString);
 
     setAnswerPosition();
   };
@@ -120,7 +127,6 @@ daf_igra_01.SpawnControl = (dataObject) => {
     let randomX;
 
     let _getX = 0;
-    let _getY = 1000;
     let _getR = daf_igra_01.getRandomIntInRange(-daf_igra_01.MAX_ROTATION, daf_igra_01.MAX_ROTATION);
     let randomTop = daf_igra_01.getRandomIntInRange(-daf_igra_01.MAX_ROTATION, daf_igra_01.MAX_ROTATION);
     randomTop = 20;
@@ -137,11 +143,11 @@ daf_igra_01.SpawnControl = (dataObject) => {
       left : randomX,
       top: randomTop,
 
-      '-webkit-transform': 'translate(' + _getX + 'px, ' + _getY + 'px)' + ' rotate(' + _getR + 'deg)',
-      '-moz-transform': 'translate(' + _getX + 'px, ' + _getY + 'px)' + ' rotate(' + _getR + 'deg)',
-      '-o-transform': 'translate(' + _getX + 'px, ' + _getY + 'px)' + ' rotate(' + _getR + 'deg)',
-      '-ms-transform': 'translate(' + _getX + 'px, ' + _getY + 'px)' + ' rotate(' + _getR + 'deg)',
-      transform : 'translate(' + _getX + 'px, ' + _getY + 'px)' + ' rotate(' + _getR + 'deg)',
+      '-webkit-transform': 'translate(' + _getX + 'px, ' + daf_igra_01.MAX_Y_POSITION + 'px)' + ' rotate(' + _getR + 'deg)',
+      '-moz-transform': 'translate('+_getX + 'px, ' + daf_igra_01.MAX_Y_POSITION + 'px)' + ' rotate(' + _getR + 'deg)',
+      '-o-transform': 'translate('+_getX + 'px, ' + daf_igra_01.MAX_Y_POSITION + 'px)' + ' rotate(' + _getR + 'deg)',
+      '-ms-transform': 'translate('+ _getX + 'px, ' + daf_igra_01.MAX_Y_POSITION + 'px)' + ' rotate(' + _getR + 'deg)',
+      transform : 'translate(' + _getX + 'px, ' + daf_igra_01.MAX_Y_POSITION + 'px)' + ' rotate(' + _getR + 'deg)',
 
       '-webkit-transition-duration' : daf_igra_01.ANSWER_FALL_TIME + 's',
       'transition-duration':  daf_igra_01.ANSWER_FALL_TIME + 's',
@@ -152,11 +158,40 @@ daf_igra_01.SpawnControl = (dataObject) => {
       'transition-timing-function' : daf_igra_01.EASING_FUNCTION_TO_USE
     });
 
-    answer.one('transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd', onTransitionEndHandler);
+    answer.one('transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd', onBottomOfPageReached);
   };
 
-  const onTransitionEndHandler = (e) => {
-    $(e.target).remove();
+  const onBottomOfPageReached = (e) => {
+    removeAnswer( $(e.target) );
+  };
+
+  const removeAnswer = (answer) => {
+    answer.off('transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd', onBottomOfPageReached);
+    answer.remove();
+  };
+
+  const shakeAnswer = (answer) => {
+    answer.find('.textWrapper').addClass( 'shake' ).one('animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd', onShakeEnd);
+  };
+
+  const onShakeEnd = (e, data) => {
+    $(e.currentTarget).off('animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd', onShakeEnd);
+    $(e.currentTarget).removeClass('shake');
+  };
+
+  const scaleAnswer = (answer) => {
+    answer.find('.textWrapper').addClass( 'scale-0 ' ).one('transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd', onScaleEnd);
+  };
+
+  const onScaleEnd = (e, data) => {
+    $(e.currentTarget).off('transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd', onScaleEnd);
+    // $(e.currentTarget).parent().remove();
+    removeAnswer( $(e.currentTarget).parent() );
+  };
+
+
+  const reset = () => {
+    resetArrays();
   };
 
 
@@ -169,6 +204,10 @@ daf_igra_01.SpawnControl = (dataObject) => {
     startSpawn();
   };
 
+  instance.stopSpawn = () => {
+    stopSpawn();
+  };
+
   instance.getQuestion = () => {
     return getQuestion();
   };
@@ -176,6 +215,23 @@ daf_igra_01.SpawnControl = (dataObject) => {
   instance.getObject = () => {
     return getObject();
   };
+
+  instance.removeAnswer = (answer) => {
+    removeAnswer(answer);
+  };
+
+  instance.scaleAnswer = (answer) => {
+    scaleAnswer(answer);
+  };
+
+  instance.shakeAnswer = (answer) => {
+    shakeAnswer(answer);
+  };
+
+  instance.reset = () => {
+    reset();
+  };
+
   
   console.log('SpawnControl ready');
   return instance;

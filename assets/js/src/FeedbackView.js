@@ -4,21 +4,25 @@ daf_igra_01.FeedbackView = (dataObject) => {
 
   'use strict';
   const instance = {};
-  instance.data = dataObject.data;
+  // instance.data = dataObject.data;
+
+  const INSTANCE_DATA = dataObject.data;
 
 
   const createView = (pointsAchived) => {
 
+    // console.log('instance.data.text', instance.data.text);
     // update text with points achived
-    instance.data.text = instance.data.text.replace('***', `<span>${pointsAchived}</span>`);
+    let pointsAchivedText = INSTANCE_DATA.text;
+    pointsAchivedText = pointsAchivedText.replace('***', `<span>${pointsAchived}</span>`);
 
     const viewString = 
     `
     <div id="feedbackView" class="view">
       <div class="viewContent">
-        <p class="annotation">${instance.data.text}</p>
+        <p class="annotation">${pointsAchivedText}</p>
         <div class="button">
-          <p>${instance.data.button}</p>
+          <p>${INSTANCE_DATA.button}</p>
         </div>
       </div>
     </div>
@@ -30,8 +34,8 @@ daf_igra_01.FeedbackView = (dataObject) => {
 
 
   const onButtonClick = (e) => {
-    $(instance).trigger('onFeedbackViewClicked');
     $('#contentWrapper #feedbackView').remove();
+    $(instance).trigger('onFeedbackViewClicked');
   };
 
 

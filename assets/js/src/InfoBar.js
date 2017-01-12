@@ -34,24 +34,49 @@ daf_igra_01.InfoBar = (dataObject) => {
     document.querySelector('#score #pointsInt').innerHTML = score;
   };
 
+  const incrementScore = () => {
+    let currentScore = parseInt(document.querySelector('#score #pointsInt').innerHTML);
+    currentScore = currentScore + daf_igra_01.CORRECT_ANSWER_POINTS;
+    setScore(currentScore);
+  };
+
+  const decrementScore = () => {
+    let currentScore = parseInt(document.querySelector('#score #pointsInt').innerHTML);
+    currentScore = currentScore - daf_igra_01.WRONG_ANSWER_POINTS;
+    setScore(currentScore);
+  };
+
+  const getScore = () => {
+    return parseInt(document.querySelector('#score #pointsInt').innerHTML);
+  };
+
   const createTimer = () => {
-    timerIntervalTick();
     timerInterval = setInterval( () => {
       timerIntervalTick();
     }, 1000);
+    timerIntervalTick();
   };
 
   const timerIntervalTick = () => {
     // timerCounter++;
     // console.log('timer tick, tick', timerCounter);
-    if(timerCounter === MAX_TIME + 1) {
+    // if(timerCounter === MAX_TIME + 1) {
+    //   stopTheTimer();
+    //   // console.log('onGameEnd');
+    //   $(instance).trigger('onEndOfTime');
+    // } else {
+    //   updateTimer(timerCounter);
+    // }
+    // timerCounter++;
+
+    if(timerCounter < MAX_TIME + 1) {
+      updateTimer(timerCounter);
+      timerCounter++;
+    } else {
       stopTheTimer();
       // console.log('onGameEnd');
-      // $(instance).trigger('onGameEnd');
-    } else {
-      updateTimer(timerCounter);
+      $(instance).trigger('onEndOfTime');
     }
-    timerCounter++;
   };
 
   const stopTheTimer = () => {
@@ -75,6 +100,12 @@ daf_igra_01.InfoBar = (dataObject) => {
     document.getElementById('time').innerHTML = timerString;
   };
 
+  const reset = () => {
+    timerCounter = 0;
+    setScore(timerCounter);
+    $('#contentWrapper #infoBar').remove();
+  };
+
 
   /* API */
   instance.init = () => {
@@ -86,9 +117,24 @@ daf_igra_01.InfoBar = (dataObject) => {
   instance.setQuestion = (question) => {
     setQuestion(question);
   };
-  instance.setScore = (score = 0) => {
-    setScore(score);
+  // instance.setScore = (score = 0) => {
+  //   setScore(score);
+  // };
+  instance.incrementScore = () => {
+    incrementScore();
   };
+
+  instance.decrementScore = () => {
+    decrementScore();
+  };
+
+  instance.getScore = () => {
+    return getScore();
+  }
+
+  instance.reset = () => {
+    reset();
+  }
   
 
   console.log('InfoBar ready');

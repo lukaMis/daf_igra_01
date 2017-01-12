@@ -27,7 +27,7 @@ daf_igra_01.Bootstrap = () => {
     data : dataHandler.getGameViewData(),
     maxTime : daf_igra_01.GAME_TIME_IN_SECONDS
   });
-  infoBar.init();
+  // infoBar.init();
   // infoBar.setScore(10);
 
   const spawnControl = daf_igra_01.SpawnControl({

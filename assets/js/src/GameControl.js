@@ -14,34 +14,55 @@ daf_igra_01.GameControl = (dataObject) => {
 
   const init = () => {
 
-    $('#contentWrapper').prepend('<div id="gameView" class="view"></div>');
+    addGameView();
     
     newQuestionInterval = setInterval(() => {
       // spawnControl.getQuestion();
       infoBar.setQuestion( spawnControl.getQuestion() );
     }, daf_igra_01.NEW_QUESTION_TIMER_IN_SECONDS * 1000);
+
+    infoBar.init();
     
     infoBar.setQuestion( spawnControl.getQuestion() );
-    // spawnControl.getQuestion();
     spawnControl.startSpawn();
 
-    addEventListner();
+    addEventListnerForClicking();
+    addEventListnerForGameEnd();
+    addEventListnerForRestart();
   };
 
-
-  const addEventListner = () => {
+  const addEventListnerForClicking = () => {
     $('#gameView').on('click', onGameViewClicked);
   };
 
+  const removeEventListnerForClicking = () => {
+    $('#gameView').off('click', onGameViewClicked);
+  };
+
+  const addEventListnerForGameEnd = () => {
+    $(infoBar).one('onEndOfTime', onEndOfTimeHandler);
+  };
+
+  const addEventListnerForRestart = () => {
+    $(feedbacView).one('onFeedbackViewClicked', () => {
+      init();
+    });
+  };
+
+  const onEndOfTimeHandler = (e) => {
+    spawnControl.stopSpawn();
+    clearInterval(newQuestionInterval);
+    feedbacView.init( infoBar.getScore() );
+    resetViews();
+  };
+
   const onGameViewClicked = (e) => {
-    // console.log(  );
     const $target = $(e.target);
     if($target.hasClass('view')) {
       console.log('view clicked');
       return;
     }
     const id = parseInt($target.attr('data-id'));
-    // console.log('check passed', id);
     checkForMatch({
       answer: $target,
       id : id
@@ -49,13 +70,37 @@ daf_igra_01.GameControl = (dataObject) => {
   };
 
   const checkForMatch = (dataObject) => {
-    console.log('dataObject.id', dataObject.id);
-    console.log('daf_igra_01.CURRENT_ID', daf_igra_01.CURRENT_ID);
     if (dataObject.id === daf_igra_01.CURRENT_ID) {
-      console.log('clicked CORRECT');
+      handleCorrect(dataObject);
     } else {
-      console.log('clicked wrong');
+      handleWrong(dataObject);
     }
+  };
+
+  const handleCorrect = (dataObject) => {
+    spawnControl.scaleAnswer( dataObject.answer );
+    infoBar.incrementScore();
+  };
+
+  const handleWrong = (dataObject) => {
+    spawnControl.shakeAnswer( dataObject.answer );
+    infoBar.decrementScore();
+  };
+
+  const addGameView = () => {
+    $('#contentWrapper').prepend('<div id="gameView" class="view"></div>');
+  };
+
+  const removeGameView = () => {
+    removeEventListnerForClicking();
+    $('#contentWrapper #gameView').remove();
+    // $('#contentWrapper').empty();
+  };
+
+  const resetViews = () => {
+    removeGameView();
+    spawnControl.reset();
+    infoBar.reset();
   };
 
 
