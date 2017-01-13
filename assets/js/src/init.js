@@ -5,26 +5,80 @@
   'use strict';
   $(document).one('i18nComplete', oni18nComplete);
 
-  let gameTime = $('#devView #gameTime');
-  let questionTime = $('#devView #questionTime');
-  let spawnTime = $('#devView #spawnTime');
-  let fallTime = $('#devView #fallTime');
-  let maxRotation = $('#devView #maxRotation');
-  let spawnPercent = $('#devView #spawnPercent');
-  let pointsUp = $('#devView #pointsUp');
-  let pointsDown = $('#devView #pointsDown');
-  let fallMethod = $('#devView #fallMethod');
+  let gameTime;
+  let questionTime;
+  let spawnTime;
+  let fallTime;
+  let maxRotation;
+  let spawnPercent;
+  let pointsUp;
+  let pointsDown;
+  let fallMethod;
+
+  let settingsConsoleString = 
+  `
+  <div id="devView">
+          <form action="" method="get">
+            Game time  <input type="text" id="gameTime" name="" value="50"> (sec)
+            <br><br>
+            New question time  <input type="text" id="questionTime" name="" value="10"> (sec)
+            <br><br>
+            Answer spawn time  <input type="text" id="spawnTime" name="" value="1"> (sec)
+            <br><br>
+            Answer fall time  <input type="text" id="fallTime" name="" value="20"> (sec)
+            <br><br>
+            Answer max rotation  <input type="text" id="maxRotation" name="" value="20"> (deg)
+            <br><br>
+            Answer correct spawn %  <input type="text" id="spawnPercent" name="" value="50"> (%)
+            <br><br>
+
+            Points up for correct  <input type="text" id="pointsUp" name="" value="10">
+            <br><br>
+            Points down for wrong  <input type="text" id="pointsDown" name="" value="10">
+            <br><br>
+            Answer fall method <select id="fallMethod" name="fallMethod">
+                <option value="linear">linear</option>
+                <option value="ease">ease</option>
+                <option value="ease-out">ease-out</option>
+                <option value="ease-in">ease-in</option>
+              </select>
+              <br><br>
+            <p id="submit">Potrdi</p>
+          </form>
+        </div>
+        `;
 
   function oni18nComplete(e) {
     FastClick.attach(document.body);
-    // daf_igra_01.Bootstrap();
+    daf_igra_01.Bootstrap();
+    $(document).on('keypress', showDevConsole);
+  };
+
+  function showDevConsole(e) {
+    console.log(e.keyCode);
+    if(e.keyCode === 115) {
+      $(document).off('keypress', showDevConsole);
+      initDevConsole();
+      console.log('init DONE');
+    }
+  };
+
+  function initDevConsole() {
+    $('#wrapper').prepend(settingsConsoleString);
+    gameTime = $('#devView #gameTime');
+    questionTime = $('#devView #questionTime');
+    spawnTime = $('#devView #spawnTime');
+    fallTime = $('#devView #fallTime');
+    maxRotation = $('#devView #maxRotation');
+    spawnPercent = $('#devView #spawnPercent');
+    pointsUp = $('#devView #pointsUp');
+    pointsDown = $('#devView #pointsDown');
+    fallMethod = $('#devView #fallMethod');
     DEV_SHIET();
   };
 
   function DEV_SHIET() {
-
     checkForCookies();
-
     $('#devView form #submit').one('click', onFormClick);
     $('body').removeClass('loading');
   }
@@ -34,7 +88,9 @@
     console.log('form clicked');
     updateGameObject();
     $('#devView').remove();
-    daf_igra_01.Bootstrap();
+    // daf_igra_01.Bootstrap();
+    $(document).on('keypress', showDevConsole);
+    console.log(daf_igra_01);
   }
 
 

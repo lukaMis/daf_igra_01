@@ -8,18 +8,24 @@ daf_igra_01.GameControl = (dataObject) => {
   const infoBar = dataObject.infoBar;
   const spawnControl = dataObject.spawnControl;
   const feedbacView = dataObject.feedbacView;
+  const particles = dataObject.particles;
 
-  let newQuestionInterval;
+  let newQuestionTimeout;
+
+  let currentTarget;
+  let $target;
   
 
   const init = () => {
 
     addGameView();
+
+    makeNewQuestionTimeout();
     
-    newQuestionInterval = setInterval(() => {
-      // spawnControl.getQuestion();
-      infoBar.setQuestion( spawnControl.getQuestion() );
-    }, daf_igra_01.NEW_QUESTION_TIMER_IN_SECONDS * 1000);
+    // newQuestionTimeout = setInterval(() => {
+    //   // spawnControl.getQuestion();
+    //   infoBar.setQuestion( spawnControl.getQuestion() );
+    // }, daf_igra_01.NEW_QUESTION_TIMER_IN_SECONDS * 1000);
 
     infoBar.init();
     
@@ -30,6 +36,18 @@ daf_igra_01.GameControl = (dataObject) => {
     addEventListnerForGameEnd();
     addEventListnerForRestart();
   };
+
+  const makeNewQuestionTimeout = () => {
+    console.log( 'daf_igra_01.NEW_QUESTION_TIMER_IN_SECONDS', daf_igra_01.NEW_QUESTION_TIMER_IN_SECONDS );
+    newQuestionTimeout = setTimeout(() => {
+      infoBar.setQuestion( spawnControl.getQuestion() );
+      makeNewQuestionTimeout();
+    }, daf_igra_01.NEW_QUESTION_TIMER_IN_SECONDS * 1000);
+  };
+
+  // const makeNewQuestion = () => {
+  //   infoBar.setQuestion( spawnControl.getQuestion() );
+  // };
 
   const addEventListnerForClicking = () => {
     $('#gameView').on('click', onGameViewClicked);
@@ -51,17 +69,25 @@ daf_igra_01.GameControl = (dataObject) => {
 
   const onEndOfTimeHandler = (e) => {
     spawnControl.stopSpawn();
-    clearInterval(newQuestionInterval);
+    // clearInterval(newQuestionInterval);
+    clearTimeout(newQuestionTimeout);
     feedbacView.init( infoBar.getScore() );
     resetViews();
   };
 
   const onGameViewClicked = (e) => {
-    const $target = $(e.target);
+
+    $target = $(e.target);
+    
     if($target.hasClass('view')) {
       console.log('view clicked');
       return;
     }
+
+    $target.attr({
+      'data-clickable' : false
+    });
+
     const id = parseInt($target.attr('data-id'));
     checkForMatch({
       answer: $target,
@@ -80,11 +106,20 @@ daf_igra_01.GameControl = (dataObject) => {
   const handleCorrect = (dataObject) => {
     spawnControl.scaleAnswer( dataObject.answer );
     infoBar.incrementScore();
+    console.log('Create PARTICLE');
+    particles.makeParticles({
+      parent : dataObject.answer,
+      numberOfParticles : 24,
+      type: 'sphere'
+    });
   };
 
   const handleWrong = (dataObject) => {
     spawnControl.shakeAnswer( dataObject.answer );
     infoBar.decrementScore();
+    dataObject.answer.attr({
+      'data-clickable' : ''
+    });
   };
 
   const addGameView = () => {

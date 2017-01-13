@@ -11,6 +11,7 @@ daf_igra_01.SpawnControl = (dataObject) => {
   let arrayOfWrongAnswers = [];
 
   let spawnInterval;
+  let spawnTimeout;
 
 
   const getQuestion = () => {
@@ -67,14 +68,15 @@ daf_igra_01.SpawnControl = (dataObject) => {
 
 
   const startSpawn = () => {
-    spawnInterval = setInterval(() => {
-      spawn();
-    }, daf_igra_01.SPAWN_TIME_IN_SECONDS * 1000 );
+    // spawnInterval = setInterval(() => {
+    //   spawn();
+    // }, daf_igra_01.SPAWN_TIME_IN_SECONDS * 1000 );
     spawn();
   };
 
   const stopSpawn = () => {
-    clearInterval(spawnInterval);
+    // clearInterval(spawnInterval);
+    clearTimeout(spawnTimeout);
     removeSpawnedObjects();
   };
 
@@ -115,20 +117,30 @@ daf_igra_01.SpawnControl = (dataObject) => {
     `;
     $('#gameView').append(answerString);
 
-    setAnswerPosition();
+    
+    setTimeout(() => {
+      setAnswerPosition();
+    }, 35);
+
+    setTimeout(() => {
+      setAnswerTransition();
+    }, 75);
+
+    spawnTimeout = setTimeout(() => {
+      spawn();
+    }, daf_igra_01.SPAWN_TIME_IN_SECONDS * 1000 );
   };
 
   const setAnswerPosition = () => {
-    const answerLength = $('#gameView .answer').length;
-    const answer = $($('#gameView .answer')[answerLength - 1]);
-    const answerWidth = answer.outerWidth();
-    const leftAndRightMargin = 20;
-    let maxX = 1024 - answerWidth - leftAndRightMargin;
-    let randomX;
+    var answerLength = $('#gameView .answer').length;
+    var answer = $($('#gameView .answer')[answerLength - 1]);
+    var answerWidth = answer.outerWidth();
+    var leftAndRightMargin = 20;
+    var maxX = 1024 - answerWidth - leftAndRightMargin;
+    var randomX;
 
-    let _getX = 0;
-    let _getR = daf_igra_01.getRandomIntInRange(-daf_igra_01.MAX_ROTATION, daf_igra_01.MAX_ROTATION);
-    let randomTop = daf_igra_01.getRandomIntInRange(-daf_igra_01.MAX_ROTATION, daf_igra_01.MAX_ROTATION);
+    var _getX = 0;
+    var randomTop = daf_igra_01.getRandomIntInRange(-daf_igra_01.MAX_ROTATION, daf_igra_01.MAX_ROTATION);
     randomTop = 20;
 
     if(maxX < 0 ) {
@@ -137,12 +149,20 @@ daf_igra_01.SpawnControl = (dataObject) => {
     } else {
       randomX = daf_igra_01.getRandomIntInRange(leftAndRightMargin, maxX);
     }
-    // console.log( randomX );
-    answer.css({
-      
-      left : randomX,
-      top: randomTop,
 
+    answer.css({
+      left : randomX,
+      top: randomTop
+    });
+  };
+
+  const setAnswerTransition = () => {
+    var answerLength = $('#gameView .answer').length;
+    var answer = $($('#gameView .answer')[answerLength - 1]);
+    var _getX = 0;
+    var _getR = daf_igra_01.getRandomIntInRange(-daf_igra_01.MAX_ROTATION, daf_igra_01.MAX_ROTATION);
+
+    answer.css({
       '-webkit-transform': 'translate(' + _getX + 'px, ' + daf_igra_01.MAX_Y_POSITION + 'px)' + ' rotate(' + _getR + 'deg)',
       '-moz-transform': 'translate('+_getX + 'px, ' + daf_igra_01.MAX_Y_POSITION + 'px)' + ' rotate(' + _getR + 'deg)',
       '-o-transform': 'translate('+_getX + 'px, ' + daf_igra_01.MAX_Y_POSITION + 'px)' + ' rotate(' + _getR + 'deg)',

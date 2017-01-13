@@ -7,12 +7,6 @@ daf_igra_01.Bootstrap = () => {
 
 
   const dataHandler = daf_igra_01.DataHandler();
-  // console.log( dataHandler.getTitleData() );
-  // console.log( dataHandler.getGameData() );
-  // console.log( dataHandler.getFeedbackData() );
-
-
-
 
 
   const feedbacView = daf_igra_01.FeedbackView({
@@ -24,22 +18,28 @@ daf_igra_01.Bootstrap = () => {
 
 
   const infoBar = daf_igra_01.InfoBar({
-    data : dataHandler.getGameViewData(),
-    maxTime : daf_igra_01.GAME_TIME_IN_SECONDS
+    data : dataHandler.getGameViewData()
   });
-  // infoBar.init();
-  // infoBar.setScore(10);
+
 
   const spawnControl = daf_igra_01.SpawnControl({
     data: dataHandler.getGameData()
   });
-  // spawnControl.init();
+
+
+  const particles = daf_igra_01.Particles({
+    parent : '#contentWrapper',
+    numberOfParticles : 10,
+    duration : 1,
+    type : 'sphere'
+  });
 
 
   const gameControl = daf_igra_01.GameControl({
     infoBar: infoBar,
     spawnControl: spawnControl,
-    feedbacView: feedbacView
+    feedbacView: feedbacView,
+    particles: particles
   });
   // gameControl.init();
 
@@ -57,7 +57,9 @@ daf_igra_01.Bootstrap = () => {
     daf_igra_01.removePreloader();
     gameControl.init();
   });
+  
   titleView.init();
+  daf_igra_01.removePreloader();
 
   
   /* API */

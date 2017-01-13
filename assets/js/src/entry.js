@@ -3,6 +3,7 @@ const daf_igra_01 = {};
 
 daf_igra_01.CURRENT_ID = 0;
 daf_igra_01.MAX_Y_POSITION = 755;
+daf_igra_01.PARTICLE_MAX_OFFSET = 150;
 
 
 daf_igra_01.GAME_TIME_IN_SECONDS = 50;
@@ -29,6 +30,10 @@ daf_igra_01.getPercentChance = (maxPercent) => {
 daf_igra_01.getRandomIntInRange = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
+daf_igra_01.getRandomInRange = (min, max) => {
+  return Math.random() * (max - min) + min;
+};
 
 
 daf_igra_01.removePreloader = () => {

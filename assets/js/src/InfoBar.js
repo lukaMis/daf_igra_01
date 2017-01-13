@@ -4,13 +4,10 @@ daf_igra_01.InfoBar = (dataObject) => {
 
   'use strict';
   const instance = {};
-  instance.data = dataObject.data;
+  const DATA = dataObject.data;
 
   let timerCounter = 0;
-  
   let timerInterval;
-  
-  const MAX_TIME = dataObject.maxTime;
 
   const createView = () => {
     const template = 
@@ -20,7 +17,7 @@ daf_igra_01.InfoBar = (dataObject) => {
           <span id="m">00</span>:<span id="s">00</span>
         </p>
         <p id="question">QUESTION</p>
-        <p id="score"><span id="pointsInt">0</span> <span>${instance.data.points}</span></p>
+        <p id="score"><span id="pointsInt">0</span> <span>${DATA.points}</span></p>
       </div>
       `;
     $('#contentWrapper').append(template);
@@ -58,18 +55,8 @@ daf_igra_01.InfoBar = (dataObject) => {
   };
 
   const timerIntervalTick = () => {
-    // timerCounter++;
-    // console.log('timer tick, tick', timerCounter);
-    // if(timerCounter === MAX_TIME + 1) {
-    //   stopTheTimer();
-    //   // console.log('onGameEnd');
-    //   $(instance).trigger('onEndOfTime');
-    // } else {
-    //   updateTimer(timerCounter);
-    // }
-    // timerCounter++;
 
-    if(timerCounter < MAX_TIME + 1) {
+    if(timerCounter < daf_igra_01.GAME_TIME_IN_SECONDS + 1) {
       updateTimer(timerCounter);
       timerCounter++;
     } else {
@@ -87,8 +74,8 @@ daf_igra_01.InfoBar = (dataObject) => {
 
   const updateTimer = (counter) => {
 
-    let secLeft = (MAX_TIME - counter) % 60;
-    let minLeft = Math.floor((MAX_TIME - counter) / 60);
+    let secLeft = (daf_igra_01.GAME_TIME_IN_SECONDS - counter) % 60;
+    let minLeft = Math.floor((daf_igra_01.GAME_TIME_IN_SECONDS - counter) / 60);
 
     secLeft = '0' + secLeft;
     const sec = secLeft.slice(-2);
