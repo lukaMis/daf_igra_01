@@ -9,6 +9,8 @@ daf_igra_01.InfoBar = (dataObject) => {
   let timerCounter = 0;
   let timerInterval;
 
+  let currentScore = 0;
+
   const createView = () => {
     const template = 
       `
@@ -32,19 +34,18 @@ daf_igra_01.InfoBar = (dataObject) => {
   };
 
   const incrementScore = () => {
-    let currentScore = parseInt(document.querySelector('#score #pointsInt').innerHTML);
     currentScore = currentScore + daf_igra_01.CORRECT_ANSWER_POINTS;
     setScore(currentScore);
   };
 
   const decrementScore = () => {
-    let currentScore = parseInt(document.querySelector('#score #pointsInt').innerHTML);
     currentScore = currentScore - daf_igra_01.WRONG_ANSWER_POINTS;
+    currentScore = currentScore < 0 ? 0:currentScore;
     setScore(currentScore);
   };
 
   const getScore = () => {
-    return parseInt(document.querySelector('#score #pointsInt').innerHTML);
+    return currentScore;
   };
 
   const createTimer = () => {
@@ -89,7 +90,8 @@ daf_igra_01.InfoBar = (dataObject) => {
 
   const reset = () => {
     timerCounter = 0;
-    setScore(timerCounter);
+    currentScore = 0;
+    setScore(currentScore);
     $('#contentWrapper #infoBar').remove();
   };
 
