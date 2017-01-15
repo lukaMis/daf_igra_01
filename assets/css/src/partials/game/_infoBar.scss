@@ -32,3 +32,41 @@
   color: $blueColor;
   font-size: 25px;
 }
+
+#infoBar #pointsInt {
+  position: relative;
+}
+
+#infoBar #pointsInt:after {
+  content: attr(data-score);
+  position: absolute;
+  
+  width: 36px;
+  top: 7%;
+  left: -42px;
+
+  font-size: 20px;
+  text-align: right;
+  color: rgb(0, 0, 0);
+
+  transform: translate(0, 0);
+  opacity: 1;
+  
+  transition: transform 0s linear, 
+              opacity 0s linear;
+}
+
+#infoBar #pointsInt[data-increment="true"]:after {
+  color: rgb(0, 255, 0);
+  transform: translate(-10px, -20px);
+  opacity: 0;
+  transition: transform 0.25s ease, 
+              opacity 0.25s linear 0.2s;
+}
+#infoBar #pointsInt[data-increment="false"]:after {
+  color: rgb(255, 0, 0);
+  transform: translate(-10px, 20px);
+  opacity: 0;
+  transition: transform 0.25s ease, 
+              opacity 0.25s linear 0.2s;
+}

@@ -29,19 +29,36 @@ daf_igra_01.InfoBar = (dataObject) => {
     document.getElementById('question').innerHTML = question;
   };
 
-  const setScore = (score) => {
-    document.querySelector('#score #pointsInt').innerHTML = score;
+  const setScore = (scoreObj) => {
+    $('#score #pointsInt')
+    .text(scoreObj.score)
+    .attr({
+      'data-increment' : '',
+      'data-score' : scoreObj.increment ? daf_igra_01.CORRECT_ANSWER_POINTS:daf_igra_01.WRONG_ANSWER_POINTS
+    });
+
+    setTimeout(() => {
+      $('#score #pointsInt').attr({
+        'data-increment' : scoreObj.increment ? true:false
+      });
+    }, 50);
   };
 
   const incrementScore = () => {
     currentScore = currentScore + daf_igra_01.CORRECT_ANSWER_POINTS;
-    setScore(currentScore);
+    setScore({
+      score:currentScore,
+      increment: true
+    });
   };
 
   const decrementScore = () => {
     currentScore = currentScore - daf_igra_01.WRONG_ANSWER_POINTS;
     currentScore = currentScore < 0 ? 0:currentScore;
-    setScore(currentScore);
+    setScore({
+      score:currentScore,
+      decrement: true
+    });
   };
 
   const getScore = () => {
@@ -91,7 +108,7 @@ daf_igra_01.InfoBar = (dataObject) => {
   const reset = () => {
     timerCounter = 0;
     currentScore = 0;
-    setScore(currentScore);
+    setScore({score:currentScore});
     $('#contentWrapper #infoBar').remove();
   };
 

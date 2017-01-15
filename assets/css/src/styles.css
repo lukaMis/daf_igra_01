@@ -177,6 +177,46 @@
   color: #53b7ff;
   font-size: 25px; }
 
+#infoBar #pointsInt {
+  position: relative; }
+
+#infoBar #pointsInt:after {
+  content: attr(data-score);
+  position: absolute;
+  width: 36px;
+  top: 7%;
+  left: -42px;
+  font-size: 20px;
+  text-align: right;
+  color: black;
+  -webkit-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  transform: translate(0, 0);
+  opacity: 1;
+  transition: opacity 0s linear,  -webkit-transform 0s linear;
+  transition: transform 0s linear,  opacity 0s linear;
+  transition: transform 0s linear,  opacity 0s linear,  -webkit-transform 0s linear; }
+
+#infoBar #pointsInt[data-increment="true"]:after {
+  color: lime;
+  -webkit-transform: translate(-10px, -20px);
+  -ms-transform: translate(-10px, -20px);
+  transform: translate(-10px, -20px);
+  opacity: 0;
+  transition: opacity 0.25s linear 0.2s,  -webkit-transform 0.25s ease;
+  transition: transform 0.25s ease,  opacity 0.25s linear 0.2s;
+  transition: transform 0.25s ease,  opacity 0.25s linear 0.2s,  -webkit-transform 0.25s ease; }
+
+#infoBar #pointsInt[data-increment="false"]:after {
+  color: red;
+  -webkit-transform: translate(-10px, 20px);
+  -ms-transform: translate(-10px, 20px);
+  transform: translate(-10px, 20px);
+  opacity: 0;
+  transition: opacity 0.25s linear 0.2s,  -webkit-transform 0.25s ease;
+  transition: transform 0.25s ease,  opacity 0.25s linear 0.2s;
+  transition: transform 0.25s ease,  opacity 0.25s linear 0.2s,  -webkit-transform 0.25s ease; }
+
 .answer {
   position: absolute;
   cursor: pointer; }
