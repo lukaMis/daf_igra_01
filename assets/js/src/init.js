@@ -50,6 +50,7 @@
 
   function oni18nComplete(e) {
     FastClick.attach(document.body);
+    checkForCookies();
     daf_igra_01.Bootstrap();
     $(document).on('keypress', showDevConsole);
   };
@@ -78,7 +79,7 @@
   };
 
   function DEV_SHIET() {
-    checkForCookies();
+    checkForCookiesForForm();
     $('#devView form #submit').one('click', onFormClick);
     $('body').removeClass('loading');
   }
@@ -132,7 +133,7 @@
     Cookies.set('spawnPercent', daf_igra_01.CORRECT_SPAWN_PERCENT);
   };
 
-  function checkForCookies() {
+  function checkForCookiesForForm() {
     // console.log('checkFor our Cookies', Cookies.get('gameTime') );
     // Cookies.remove('gameTime');
     // Cookies.remove('questionTime');
@@ -151,6 +152,25 @@
     }
   };
 
+  function checkForCookies() {
+    // console.log('checkFor our Cookies', Cookies.get('gameTime') );
+    // Cookies.remove('gameTime');
+    // Cookies.remove('questionTime');
+    // Cookies.remove('spawnTime');
+    // Cookies.remove('fallTime');
+    // Cookies.remove('maxRotation');
+    // Cookies.remove('pointsUp');
+    // Cookies.remove('pointsDown');
+    // Cookies.remove('fallMethod');
+    // Cookies.remove('spawnPercent');
+
+    if(Cookies.get('gameTime') === undefined) {
+      console.log('no cookie bitch');
+    } else {
+      fillTheGameData();
+    }
+  };
+
   function fillTheForm() {
     gameTime[0].value = Cookies.get('gameTime');
     questionTime[0].value = Cookies.get('questionTime');
@@ -161,6 +181,25 @@
     pointsUp[0].value = Cookies.get('pointsUp');
     pointsDown[0].value = Cookies.get('pointsDown');
     fallMethod[0].value = Cookies.get('fallMethod');
+  };
+
+  function fillTheGameData() {
+
+    daf_igra_01.GAME_TIME_IN_SECONDS = parseInt(Cookies.get('gameTime'));
+    daf_igra_01.NEW_QUESTION_TIMER_IN_SECONDS = parseInt(Cookies.get('questionTime'));
+
+    daf_igra_01.SPAWN_TIME_IN_SECONDS = parseFloat(Cookies.get('spawnTime'));
+    daf_igra_01.ANSWER_FALL_TIME = parseInt(Cookies.get('fallTime'));
+    daf_igra_01.MAX_ROTATION = parseInt(Cookies.get('maxRotation'));
+
+    daf_igra_01.CORRECT_ANSWER_POINTS = parseInt(Cookies.get('pointsUp'));
+    daf_igra_01.WRONG_ANSWER_POINTS = parseInt(Cookies.get('pointsDown'));
+
+    daf_igra_01.EASING_FUNCTION_TO_USE = Cookies.get('fallMethod');
+
+    daf_igra_01.CORRECT_SPAWN_PERCENT = parseInt(Cookies.get('spawnPercent'));
+
+    console.log('fillTheGameData DONE');
   };
 
   
