@@ -2,11 +2,13 @@
 
 const daf_igra_01 = {};
 
+// Constants not tweakable by editors.
 daf_igra_01.CURRENT_ID = 0;
 daf_igra_01.MAX_Y_POSITION = 755;
 daf_igra_01.PARTICLE_MAX_OFFSET = 150;
 
 
+// Tweakable by editors via form.
 daf_igra_01.GAME_TIME_IN_SECONDS = 60;
 
 daf_igra_01.NEW_QUESTION_TIMER_IN_SECONDS = 10;
