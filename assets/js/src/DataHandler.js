@@ -20,6 +20,9 @@ daf_igra_01.DataHandler = () => {
   instance.getGameViewData = () => {
     return i18n.t('gameView', {returnObjectTrees:true});
   };
+  instance.getAudioData = () => {
+    return i18n.t('audioData', {returnObjectTrees:true});
+  };
 
   
   console.log('DataHandler ready');

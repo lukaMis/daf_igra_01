@@ -8,6 +8,13 @@ daf_igra_01.Bootstrap = () => {
 
   const dataHandler = daf_igra_01.DataHandler();
 
+  const soundControl = daf_igra_01.SoundControl();
+  $(soundControl).on('onAudioLoadComplete', (e) => {
+    console.log('from bootstrap onAudioLoadComplete');
+    titleView.init();
+    daf_igra_01.removePreloader();
+  });
+
 
   const feedbacView = daf_igra_01.FeedbackView({
     data: dataHandler.getFeedbackData()
@@ -39,14 +46,9 @@ daf_igra_01.Bootstrap = () => {
     infoBar: infoBar,
     spawnControl: spawnControl,
     feedbacView: feedbacView,
-    particles: particles
+    particles: particles,
+    soundControl: soundControl
   });
-  // gameControl.init();
-
-
-
-  // feedbacView.init();
-  // daf_igra_01.removePreloader();
 
 
   const titleView = daf_igra_01.TitleView({
@@ -54,12 +56,11 @@ daf_igra_01.Bootstrap = () => {
   });
   $(titleView).on('onTitleViewClicked', (e) => {
     console.log('Start teh game');
-    daf_igra_01.removePreloader();
     gameControl.init();
   });
-  
-  titleView.init();
-  daf_igra_01.removePreloader();
+
+
+  soundControl.init( dataHandler.getAudioData() );
 
   
   /* API */

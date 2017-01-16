@@ -9,6 +9,7 @@ daf_igra_01.GameControl = (dataObject) => {
   const spawnControl = dataObject.spawnControl;
   const feedbacView = dataObject.feedbacView;
   const particles = dataObject.particles;
+  const soundControl = dataObject.soundControl;
 
   let newQuestionTimeout;
 
@@ -41,13 +42,10 @@ daf_igra_01.GameControl = (dataObject) => {
     console.log( 'daf_igra_01.NEW_QUESTION_TIMER_IN_SECONDS', daf_igra_01.NEW_QUESTION_TIMER_IN_SECONDS );
     newQuestionTimeout = setTimeout(() => {
       infoBar.setQuestion( spawnControl.getQuestion() );
+      soundControl.play('change');
       makeNewQuestionTimeout();
     }, daf_igra_01.NEW_QUESTION_TIMER_IN_SECONDS * 1000);
   };
-
-  // const makeNewQuestion = () => {
-  //   infoBar.setQuestion( spawnControl.getQuestion() );
-  // };
 
   const addEventListnerForClicking = () => {
     $('#gameView').on('click', onGameViewClicked);
@@ -104,6 +102,7 @@ daf_igra_01.GameControl = (dataObject) => {
   };
 
   const handleCorrect = (dataObject) => {
+    soundControl.play('correct');
     spawnControl.scaleAnswer( dataObject.answer );
     infoBar.incrementScore();
     console.log('Create PARTICLE');
@@ -115,6 +114,7 @@ daf_igra_01.GameControl = (dataObject) => {
   };
 
   const handleWrong = (dataObject) => {
+    soundControl.play('wrong');
     spawnControl.shakeAnswer( dataObject.answer );
     infoBar.decrementScore();
     dataObject.answer.attr({

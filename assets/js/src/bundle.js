@@ -10,6 +10,8 @@
 // @prepros-append TitleControl.js
 // @prepros-append GameControl.js
 
+// @prepros-append SoundControl.js
+
 // @prepros-append Particles.js
 
  // @prepros-append Controller.js
