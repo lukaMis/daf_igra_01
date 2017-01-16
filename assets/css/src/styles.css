@@ -175,7 +175,8 @@
 
 #infoBar #question {
   color: #53b7ff;
-  font-size: 25px; }
+  font-size: 25px;
+  font-size: 36px; }
 
 #infoBar #pointsInt {
   position: relative; }
@@ -233,6 +234,7 @@
 
 #gameView .answer .textWrapper p {
   font-size: 25px;
+  font-size: 36px;
   background-color: black;
   padding: 4px 6px;
   position: relative; }

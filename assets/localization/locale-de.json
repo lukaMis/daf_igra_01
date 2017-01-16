@@ -51,7 +51,7 @@
       ]
     },
     {
-      "question" : "ich und Leo",
+      "question" : "Leo und ich",
       "answers" : [
         "spielen", "sind", "filmen", "machen", "hören", "programmieren", "proben", "kochen", "sprechen", "joggen", 
         "lernen", "wohnen", "heißen", "fotografieren", "finden", "mögen", "kommen"
@@ -81,17 +81,17 @@
 
 
   "titleView" : {
-    "text" : "Klicke auf das rictige Verb.",
+    "text" : "Was passt? Klick auf die richtige Wörter.",
     "button" : "Spielen"
   },
 
   "feedbackView" : {
-    "text" : "Sie haben *** Punkte erreicht!",
-    "button" : "Spielen wieder"
+    "text" : "Du hast *** Punkte erreicht",
+    "button" : "Erneut spielen"
   },
 
   "gameView" : {
-    "points" : "punkte"
+    "points" : "Punkte"
   },
 
   "audioData": {
