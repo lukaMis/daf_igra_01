@@ -95,9 +95,7 @@
   },
 
   "audioData": {
-    "change": "change",
-    "correct": "correct",
-    "wrong": "wrong"
+    "change": "change"
   }
 
 }

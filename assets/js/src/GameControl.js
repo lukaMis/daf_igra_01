@@ -110,7 +110,6 @@ daf_igra_01.GameControl = (dataObject) => {
   };
 
   const handleCorrect = (dataObject) => {
-    soundControl.play('correct');
     spawnControl.scaleAnswer( dataObject.answer );
     infoBar.incrementScore();
     console.log('Create PARTICLE');
@@ -122,7 +121,6 @@ daf_igra_01.GameControl = (dataObject) => {
   };
 
   const handleWrong = (dataObject) => {
-    soundControl.play('wrong');
     spawnControl.shakeAnswer( dataObject.answer );
     infoBar.decrementScore();
     dataObject.answer.attr({
