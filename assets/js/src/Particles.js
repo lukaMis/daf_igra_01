@@ -53,9 +53,9 @@ daf_igra_01.Particles = (configObject) => {
       let _getY = daf_igra_01.getRandomIntInRange(-daf_igra_01.PARTICLE_MAX_OFFSET, daf_igra_01.PARTICLE_MAX_OFFSET);
       let _getR = daf_igra_01.getRandomIntInRange(0, 720);
       let _getScale = daf_igra_01.getRandomInRange(0.1, 0.2);
-      let _getRed = daf_igra_01.getRandomIntInRange(0, 255);
-      let _getGreen = daf_igra_01.getRandomIntInRange(0, 255);
-      let _getBlue = daf_igra_01.getRandomIntInRange(0, 255);
+      let _getRed = daf_igra_01.getRandomIntInRange(60, 255);
+      let _getGreen = daf_igra_01.getRandomIntInRange(60, 255);
+      let _getBlue = daf_igra_01.getRandomIntInRange(60, 255);
 
       $(particle).css({
         '-webkit-transform': 'translate(' + _getX + 'px, ' + _getY + 'px)' + ' rotate(' + _getR + 'deg)' + ' scale(' + _getScale + ')',
