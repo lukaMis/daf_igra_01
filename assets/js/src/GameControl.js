@@ -87,17 +87,25 @@ daf_igra_01.GameControl = (dataObject) => {
     });
 
     const id = parseInt($target.attr('data-id'));
+    const textOfTarget = $target.find('.textWrapper p').text();
+    
     checkForMatch({
       answer: $target,
-      id : id
+      id : id,
+      text: textOfTarget
     });
   };
 
-  const checkForMatch = (dataObject) => {
-    if (dataObject.id === daf_igra_01.CURRENT_ID) {
-      handleCorrect(dataObject);
+  const checkForMatch = (clickedAnswer) => {
+    // if(clickedAnswer.id === daf_igra_01.CURRENT_ID) {
+    //   handleCorrect(clickedAnswer);
+    // } else {
+    //   handleWrong(clickedAnswer);
+    // }
+    if(spawnControl.getCorrectAnswersArray().indexOf(clickedAnswer.text) === -1) {
+      handleWrong(clickedAnswer);
     } else {
-      handleWrong(dataObject);
+      handleCorrect(clickedAnswer);
     }
   };
 

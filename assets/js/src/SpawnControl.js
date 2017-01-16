@@ -59,10 +59,12 @@ daf_igra_01.SpawnControl = (dataObject) => {
     }
   };
 
+  const getCorrectAnswersArray = () => {
+    return GAME_DATA[daf_igra_01.CURRENT_ID].answers;
+  };
+
 
   const getObject = () => {
-
-
     return;
   };
 
@@ -230,6 +232,10 @@ daf_igra_01.SpawnControl = (dataObject) => {
 
   instance.getQuestion = () => {
     return getQuestion();
+  };
+
+  instance.getCorrectAnswersArray = () => {
+    return getCorrectAnswersArray();
   };
 
   instance.getObject = () => {
