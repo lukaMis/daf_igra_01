@@ -10,7 +10,7 @@ daf_igra_01.AUDIO_IS_MUTED = false;
 
 
 // Tweakable by editors via form.
-daf_igra_01.GAME_TIME_IN_SECONDS = 600;
+daf_igra_01.GAME_TIME_IN_SECONDS = 60;
 
 daf_igra_01.NEW_QUESTION_TIMER_IN_SECONDS = 10;
 daf_igra_01.SPAWN_TIME_IN_SECONDS = 1.35;
