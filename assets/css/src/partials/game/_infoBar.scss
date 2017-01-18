@@ -11,16 +11,34 @@
   // justify-content: space-between;
   align-items: center;
 
-  border-bottom: 1px solid darken( $backgroundColor, 4% );
+  // border-bottom: 1px solid darken( $backgroundColor, 4% );
+  // border-bottom: 1px solid $backgroundColor;
 
   padding: 20px;
   padding-bottom: 10px;
-  background-color: darken( $backgroundColor, 2% );
+  // background-color: darken( $infoBarBackgroundColor, 2% );
+  background-color: $infoBarBackgroundColor;
+  // background-color: rgba(255, 255, 255, 0.4);
 
   position: absolute;
   width: 100%;
-  height: 60px;
+
+  min-height: 60px;
   z-index: 1;
+  
+  box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.42);
+}
+
+// text select mouse coursor hack :)
+#infoBar p:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: red;
+  opacity: 0
 }
 
 #infoBar p, 
@@ -31,14 +49,16 @@
 
 #infoBar p, 
 #infoBar p span {
-  color: rgb(255, 255, 255);
-  font-size: 21px;
+  color: $fontColor;
+  color: $infoBarFontColor;
+  font-size: $infoBarFontSize;
 }
 
 #infoBar #question {
-  color: $blueColor;
+  // color: $blueColor;
+  color: $fontColor;
   font-size: 25px;
-  font-size: 36px;
+  font-size: $questionFontSize;
 
   left: 50%;
   top: 50%;
@@ -47,6 +67,7 @@
 
 #infoBar #pointsInt {
   position: relative;
+  color: $fontColor;
 }
 
 #infoBar #pointsInt:after {
@@ -70,14 +91,14 @@
 
 #infoBar #pointsInt[data-increment="true"]:after {
   color: rgb(0, 255, 0);
-  transform: translate(-10px, -20px);
+  transform: translate(-10px, -18px);
   opacity: 0;
   transition: transform 0.25s ease, 
               opacity 0.25s linear 0.2s;
 }
 #infoBar #pointsInt[data-increment="false"]:after {
   color: rgb(255, 0, 0);
-  transform: translate(-10px, 20px);
+  transform: translate(-10px, 23px);
   opacity: 0;
   transition: transform 0.25s ease, 
               opacity 0.25s linear 0.2s;

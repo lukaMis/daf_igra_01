@@ -1,10 +1,5 @@
-body {
-  background-color: black;
-  background-color: #8c63aa; }
-
 #wrapper {
-  background-color: black;
-  background-color: #8c63aa; }
+  background-color: #f9b000; }
 
 .view {
   position: absolute;
@@ -13,7 +8,7 @@ body {
   top: 0;
   left: 0;
   padding: 0 160px;
-  background-color: #8c63aa;
+  background-color: #f9b000;
   text-align: center;
   z-index: 0; }
 
@@ -36,8 +31,8 @@ body {
 
 .view p {
   font-style: normal;
-  font-size: 21px;
-  color: white;
+  font-size: 36px;
+  color: black;
   position: relative; }
 
 .view p:after {
@@ -55,7 +50,7 @@ body {
 
 .view .button {
   padding: 12px 16px;
-  background-color: #53b7ff;
+  background-color: white;
   display: inline-block;
   border-radius: 4px;
   cursor: pointer; }
@@ -75,7 +70,7 @@ body {
   z-index: 2; }
 
 #feedbackView .annotation span {
-  color: #53b7ff; }
+  color: white; }
 
 #devView {
   position: absolute;
@@ -144,25 +139,28 @@ body {
 .view .annotation {
   margin-bottom: 20px; }
 
-.view .button {
-  padding: 12px 16px;
-  background-color: #53b7ff;
-  display: inline-block;
-  border-radius: 4px;
-  cursor: pointer; }
-
 #infoBar {
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  border-bottom: 1px solid #8258a1;
   padding: 20px;
   padding-bottom: 10px;
-  background-color: #875ca6;
+  background-color: white;
   position: absolute;
   width: 100%;
-  height: 60px;
-  z-index: 1; }
+  min-height: 60px;
+  z-index: 1;
+  box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.42); }
+
+#infoBar p:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: red;
+  opacity: 0; }
 
 #infoBar p,
 #infoBar div {
@@ -170,13 +168,14 @@ body {
 
 #infoBar p,
 #infoBar p span {
-  color: white;
-  font-size: 21px; }
+  color: black;
+  color: #5a5a5a;
+  font-size: 24px; }
 
 #infoBar #question {
-  color: #53b7ff;
+  color: black;
   font-size: 25px;
-  font-size: 36px;
+  font-size: 40px;
   left: 50%;
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
@@ -184,7 +183,8 @@ body {
   transform: translate(-50%, -50%); }
 
 #infoBar #pointsInt {
-  position: relative; }
+  position: relative;
+  color: black; }
 
 #infoBar #pointsInt:after {
   content: attr(data-score);
@@ -205,9 +205,9 @@ body {
 
 #infoBar #pointsInt[data-increment="true"]:after {
   color: lime;
-  -webkit-transform: translate(-10px, -20px);
-  -ms-transform: translate(-10px, -20px);
-  transform: translate(-10px, -20px);
+  -webkit-transform: translate(-10px, -18px);
+  -ms-transform: translate(-10px, -18px);
+  transform: translate(-10px, -18px);
   opacity: 0;
   transition: opacity 0.25s linear 0.2s,  -webkit-transform 0.25s ease;
   transition: transform 0.25s ease,  opacity 0.25s linear 0.2s;
@@ -215,9 +215,9 @@ body {
 
 #infoBar #pointsInt[data-increment="false"]:after {
   color: red;
-  -webkit-transform: translate(-10px, 20px);
-  -ms-transform: translate(-10px, 20px);
-  transform: translate(-10px, 20px);
+  -webkit-transform: translate(-10px, 23px);
+  -ms-transform: translate(-10px, 23px);
+  transform: translate(-10px, 23px);
   opacity: 0;
   transition: opacity 0.25s linear 0.2s,  -webkit-transform 0.25s ease;
   transition: transform 0.25s ease,  opacity 0.25s linear 0.2s;
@@ -282,7 +282,7 @@ body {
 #gameView .answer .textWrapper p {
   font-size: 25px;
   font-size: 36px;
-  background-color: #8c63aa;
+  background-color: #f9b000;
   padding: 4px 6px;
   position: relative; }
 

@@ -89,9 +89,11 @@ daf_igra_01.SpawnControl = (dataObject) => {
       spawn: spawnText
     });
 
+    let leftPosition = daf_igra_01.getRandomIntInRange(10, 1024 - 10 - (spawnText.length * 20) );
+
     const answerString = 
     `
-    <div class="answer" data-id="${idToAssign}">
+    <div class="answer" data-id="${idToAssign}" style="left: ${leftPosition}px; top: 25px;">
       <div class="textWrapper">
         <p>${spawnText}</p>
       </div>
@@ -100,13 +102,13 @@ daf_igra_01.SpawnControl = (dataObject) => {
     $('#gameView').append(answerString);
 
     
-    setTimeout(() => {
-      setAnswerPosition();
-    }, 35);
+    // setTimeout(() => {
+    //   // setAnswerPosition();
+    // }, 20);
 
     setTimeout(() => {
       setAnswerTransition();
-    }, 75);
+    }, 30);
 
     spawnTimeout = setTimeout(() => {
       spawn();
@@ -122,8 +124,7 @@ daf_igra_01.SpawnControl = (dataObject) => {
     var randomX;
 
     var _getX = 0;
-    var randomTop = daf_igra_01.getRandomIntInRange(-daf_igra_01.MAX_ROTATION, daf_igra_01.MAX_ROTATION);
-    randomTop = 20;
+    var topPosToUse = 20;
 
     if(maxX < 0 ) {
       maxX = 0;
@@ -134,7 +135,7 @@ daf_igra_01.SpawnControl = (dataObject) => {
 
     answer.css({
       left : randomX,
-      top: randomTop
+      top: topPosToUse
     });
   };
 
