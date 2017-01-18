@@ -14,10 +14,7 @@ daf_igra_01.Particles = (configObject) => {
 
   const easeArray = [ 'linear', 'ease', 'ease-in', 'ease-out' ];
 
-  // console.log('parent', parent);
-  // console.log('numberOfParticles', numberOfParticles);
-  // console.log('duration', duration);
-  // console.log('type', type);
+
 
   const makeParticles = (dataObject) => {
     parent = dataObject.parent || parent;
@@ -25,16 +22,16 @@ daf_igra_01.Particles = (configObject) => {
     duration = dataObject.duration || duration;
     type = dataObject.type || type;
 
-    let particlesString;
+    let particlesString = '';
     console.log(type);
     for (let i = 0; i < numberOfParticles; i++) {
-      // let _scale = setScale();
+
       let pString = 
       `<div class="particle" data-type="${type}"></div>`;
       // console.log( pString );
       particlesString += pString;
     }
-
+    
     parent.append(particlesString);
     
     setTimeout(() => {
@@ -77,12 +74,12 @@ daf_igra_01.Particles = (configObject) => {
     });
   };
 
-
   const getScale = () => {
     // style="transform: translate(0px, 30px) rotate(1deg); transition-duration: 10s; transition-timing-function: linear;"
     return `scale( ${daf_igra_01.getRandomIntInRange(1, 10)} )`;
   };
   
+
 
   /* API */
   instance.init = () => {};
