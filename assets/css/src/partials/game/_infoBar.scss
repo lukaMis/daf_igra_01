@@ -1,25 +1,32 @@
 
 
  #infoBar {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  // display: flex;
+  // flex-direction: row;
+  // flex-wrap: wrap;
 
   // justify-content: flex-start | flex-end | center | space-between | space-around;
   // align-items: flex-start | flex-end | center | baseline | stretch;
 
-  justify-content: space-between;
+  // justify-content: space-between;
+  align-items: center;
 
-  border-bottom: 1px solid red;
-  border-bottom: 1px solid rgb(0, 0, 0);
-  // border-bottom: 1px solid rgb(255, 255, 255);
+  border-bottom: 1px solid darken( $backgroundColor, 4% );
+
   padding: 20px;
   padding-bottom: 10px;
-  background-color: rgba(0, 0, 0, 1);
+  background-color: darken( $backgroundColor, 2% );
 
   position: absolute;
   width: 100%;
+  height: 60px;
   z-index: 1;
+}
+
+#infoBar p, 
+#infoBar div {
+  position: absolute;
+  // border: 1px solid red;
 }
 
 #infoBar p, 
@@ -32,6 +39,10 @@
   color: $blueColor;
   font-size: 25px;
   font-size: 36px;
+
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 #infoBar #pointsInt {
@@ -70,4 +81,135 @@
   opacity: 0;
   transition: transform 0.25s ease, 
               opacity 0.25s linear 0.2s;
+}
+
+#infoBar #time {
+  left: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#infoBar #score {
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#infoBar #muteButton {
+  left: 100px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 40px;
+  height: 40px;
+
+  background-image: url('../images/muteButton.svg');
+  background-size: 20px 32px;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  cursor: pointer;
+}
+
+$soundAnimationDuration: 2s;
+
+#infoBar #muteButton:after {
+  
+  content: "";
+  position: absolute;
+  
+  top: 50%;
+  right: 0px;
+  transform: translate(0%, -50%) scale(0.2);
+
+  width: 8px;
+  height: 23px;
+
+  background-image: url('../images/soundWave.svg');
+  background-size: 8px 23px;
+  background-repeat: no-repeat;
+
+  animation-name: pulse;
+  animation-duration: $soundAnimationDuration;
+  animation-timing-function: ease-in;
+  animation-iteration-count: infinite;
+  animation-delay: 0s;
+}
+
+#infoBar #muteButton:before {
+  
+  content: "";
+  position: absolute;
+  
+  top: 50%;
+  right: 0px;
+  transform: translate(-50%, -50%) scale(0);
+
+  width: 8px;
+  height: 23px;
+
+  background-image: url('../images/soundWave.svg');
+  background-size: 8px 23px;
+  background-repeat: no-repeat;
+
+  animation-name: pulse;
+  animation-duration: $soundAnimationDuration;
+  animation-timing-function: ease-in;
+  animation-iteration-count: infinite;
+  animation-delay: $soundAnimationDuration / 2;
+}
+
+@keyframes pulse {
+  0% {
+    transform: translate(-8px, -50%) scale(0);
+  }
+  100% {
+    transform: translate(8px, -50%) scale(1);
+  }
+}
+
+
+
+// When muted
+#infoBar #muteButton[data-mute="true"]:after {
+  
+  content: "";
+  position: absolute;
+
+  width: 110%;
+  height: 3px;
+
+  background-color: darken( $backgroundColor, 10% );
+  
+  top: 50%;
+  right: initial;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1) rotate(45deg);
+
+  background-image: none;
+  background-size: 0px 0px;
+  background-repeat: no-repeat;
+
+  animation-name: none;
+}
+
+#infoBar #muteButton[data-mute="true"]:before {
+  
+  content: "";
+  position: absolute;
+
+  width: 110%;
+  height: 3px;
+
+  background-color: darken( $backgroundColor, 10% );
+  
+  top: 50%;
+  right: initial;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1) rotate(-45deg);
+
+  background-image: none;
+  background-size: 0px 0px;
+  background-repeat: no-repeat;
+
+  animation-name: none;
 }

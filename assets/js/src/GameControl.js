@@ -34,6 +34,7 @@ daf_igra_01.GameControl = (dataObject) => {
     spawnControl.startSpawn();
 
     addEventListnerForClicking();
+    addEventListnerForMute();
     addEventListnerForGameEnd();
     addEventListnerForRestart();
   };
@@ -55,6 +56,14 @@ daf_igra_01.GameControl = (dataObject) => {
     $('#gameView').off('click', onGameViewClicked);
   };
 
+  const addEventListnerForMute = () => {
+    $(infoBar).on('onAudioMute', onAudioMuteHandler);
+  };
+
+  const removeEventListnerForMute = () => {
+    $(infoBar).off('onAudioMute', onAudioMuteHandler);
+  };
+
   const addEventListnerForGameEnd = () => {
     $(infoBar).one('onEndOfTime', onEndOfTimeHandler);
   };
@@ -65,8 +74,13 @@ daf_igra_01.GameControl = (dataObject) => {
     });
   };
 
+  const onAudioMuteHandler = (e, data) => {
+    soundControl.muteAudio(data.muteAudio);
+  };
+
   const onEndOfTimeHandler = (e) => {
     spawnControl.stopSpawn();
+    removeEventListnerForMute();
     // clearInterval(newQuestionInterval);
     clearTimeout(newQuestionTimeout);
     feedbacView.init( infoBar.getScore() );

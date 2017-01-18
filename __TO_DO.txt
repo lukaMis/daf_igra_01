@@ -1,3 +1,6 @@
+- Add mute button to info bar
+DONE
+
 - Add sound effect to on question change
 DONE
 

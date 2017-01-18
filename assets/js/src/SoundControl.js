@@ -47,6 +47,10 @@ daf_igra_01.SoundControl = () => {
     $(instance).trigger('onAudioCompleted');
   };
 
+  const muteAudio = (isAudioMuted) => {
+    createjs.Sound.muted = isAudioMuted;
+  };
+
 
   /* API */
   instance.init = (configObj) => {
@@ -54,6 +58,9 @@ daf_igra_01.SoundControl = () => {
   };
   instance.play = (id) => {
     playAudio(id);
+  };
+  instance.muteAudio = (isAudioMuted) => {
+    muteAudio(isAudioMuted);
   };
   
 

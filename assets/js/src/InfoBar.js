@@ -18,11 +18,15 @@ daf_igra_01.InfoBar = (dataObject) => {
         <p id="time">
           <span id="m">00</span>:<span id="s">00</span>
         </p>
+        <div id="muteButton" data-mute="${daf_igra_01.AUDIO_IS_MUTED}"></div>
         <p id="question">QUESTION</p>
         <p id="score"><span id="pointsInt">0</span> <span>${DATA.points}</span></p>
       </div>
       `;
     $('#contentWrapper').append(template);
+    setTimeout(() => {
+      addListnerToMuteButton();
+    }, 50);
   };
 
   const setQuestion = (question) => {
@@ -105,9 +109,28 @@ daf_igra_01.InfoBar = (dataObject) => {
     document.getElementById('time').innerHTML = timerString;
   };
 
+  const onMuteButtonClick = (e) => {
+    daf_igra_01.AUDIO_IS_MUTED = !daf_igra_01.AUDIO_IS_MUTED;
+    $(instance).trigger('onAudioMute', {
+      muteAudio: daf_igra_01.AUDIO_IS_MUTED
+    });
+    $('#muteButton').attr({
+      'data-mute': daf_igra_01.AUDIO_IS_MUTED
+    });
+  };
+
+  const addListnerToMuteButton = () => {
+    $('#muteButton').on('click', onMuteButtonClick);
+  };
+
+  const removeListnerFromMuteButton = () => {
+    $('#muteButton').off('click', onMuteButtonClick);
+  };
+
   const reset = () => {
     timerCounter = 0;
     currentScore = 0;
+    removeListnerFromMuteButton();
     setScore({score:currentScore});
     $('#contentWrapper #infoBar').remove();
   };
