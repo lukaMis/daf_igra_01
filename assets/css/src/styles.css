@@ -246,105 +246,19 @@ body {
   width: 40px;
   height: 40px;
   background-image: url("../images/muteButton.svg");
-  background-size: 20px 32px;
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
   cursor: pointer; }
-
-#infoBar #muteButton:after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  right: 0px;
-  -webkit-transform: translate(0%, -50%) scale(0.2);
-  -ms-transform: translate(0%, -50%) scale(0.2);
-  transform: translate(0%, -50%) scale(0.2);
-  width: 8px;
-  height: 23px;
-  background-image: url("../images/soundWave.svg");
-  background-size: 8px 23px;
-  background-repeat: no-repeat;
-  -webkit-animation-name: pulse;
-  animation-name: pulse;
-  -webkit-animation-duration: 2s;
-  animation-duration: 2s;
-  -webkit-animation-timing-function: ease-in;
-  animation-timing-function: ease-in;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-  -webkit-animation-delay: 0s;
-  animation-delay: 0s; }
-
-#infoBar #muteButton:before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  right: 0px;
-  -webkit-transform: translate(-50%, -50%) scale(0);
-  -ms-transform: translate(-50%, -50%) scale(0);
-  transform: translate(-50%, -50%) scale(0);
-  width: 8px;
-  height: 23px;
-  background-image: url("../images/soundWave.svg");
-  background-size: 8px 23px;
-  background-repeat: no-repeat;
-  -webkit-animation-name: pulse;
-  animation-name: pulse;
-  -webkit-animation-duration: 2s;
-  animation-duration: 2s;
-  -webkit-animation-timing-function: ease-in;
-  animation-timing-function: ease-in;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-  -webkit-animation-delay: 1s;
-  animation-delay: 1s; }
-
-@-webkit-keyframes pulse {
-  0% {
-    -webkit-transform: translate(-8px, -50%) scale(0);
-    transform: translate(-8px, -50%) scale(0); }
-  100% {
-    -webkit-transform: translate(8px, -50%) scale(1);
-    transform: translate(8px, -50%) scale(1); } }
-
-@keyframes pulse {
-  0% {
-    -webkit-transform: translate(-8px, -50%) scale(0);
-    transform: translate(-8px, -50%) scale(0); }
-  100% {
-    -webkit-transform: translate(8px, -50%) scale(1);
-    transform: translate(8px, -50%) scale(1); } }
 
 #infoBar #muteButton[data-mute="true"]:after {
   content: "";
   position: absolute;
-  width: 110%;
-  height: 3px;
-  background-color: #724d8d;
+  width: 26px;
+  height: 2px;
+  background-color: #5a5a5a;
   top: 50%;
-  right: initial;
   left: 50%;
   -webkit-transform: translate(-50%, -50%) scale(1) rotate(45deg);
   -ms-transform: translate(-50%, -50%) scale(1) rotate(45deg);
   transform: translate(-50%, -50%) scale(1) rotate(45deg);
-  background-image: none;
-  background-size: 0px 0px;
-  background-repeat: no-repeat;
-  -webkit-animation-name: none;
-  animation-name: none; }
-
-#infoBar #muteButton[data-mute="true"]:before {
-  content: "";
-  position: absolute;
-  width: 110%;
-  height: 3px;
-  background-color: #724d8d;
-  top: 50%;
-  right: initial;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%) scale(1) rotate(-45deg);
-  -ms-transform: translate(-50%, -50%) scale(1) rotate(-45deg);
-  transform: translate(-50%, -50%) scale(1) rotate(-45deg);
   background-image: none;
   background-size: 0px 0px;
   background-repeat: no-repeat;
