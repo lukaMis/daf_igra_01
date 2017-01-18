@@ -15,18 +15,14 @@ daf_igra_01.GameControl = (dataObject) => {
 
   let currentTarget;
   let $target;
-  
 
+
+  
   const init = () => {
 
     addGameView();
 
     makeNewQuestionTimeout();
-    
-    // newQuestionTimeout = setInterval(() => {
-    //   // spawnControl.getQuestion();
-    //   infoBar.setQuestion( spawnControl.getQuestion() );
-    // }, daf_igra_01.NEW_QUESTION_TIMER_IN_SECONDS * 1000);
 
     infoBar.init();
     
@@ -157,6 +153,7 @@ daf_igra_01.GameControl = (dataObject) => {
     spawnControl.reset();
     infoBar.reset();
   };
+
 
 
   /* API */

@@ -11,6 +11,8 @@ daf_igra_01.InfoBar = (dataObject) => {
 
   let currentScore = 0;
 
+
+
   const createView = () => {
     const template = 
       `
@@ -136,19 +138,17 @@ daf_igra_01.InfoBar = (dataObject) => {
   };
 
 
+
   /* API */
   instance.init = () => {
     createView();
     createTimer();
   };
 
-  // instance.setTime = () => {};
   instance.setQuestion = (question) => {
     setQuestion(question);
   };
-  // instance.setScore = (score = 0) => {
-  //   setScore(score);
-  // };
+
   instance.incrementScore = () => {
     incrementScore();
   };

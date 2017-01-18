@@ -8,6 +8,8 @@ daf_igra_01.SoundControl = () => {
   let filesLoaded = 0;
   let filesToLoad = 0;
 
+
+
   const loadAudio = (configObj) => {
     createjs.Sound.on('fileload', onSoundLoaded);
 
@@ -20,9 +22,6 @@ daf_igra_01.SoundControl = () => {
     //   // register sound
     // }
     for (const key of Object.keys(configObj)) {
-      // console.log(key, configObj[key]);
-      // console.log('*** KEY:', key);
-      // console.log('*** VALUE:', configObj[key]);
       createjs.Sound.registerSound(`assets/audio/${configObj[key]}.mp3`, key);
     }
   };
@@ -52,13 +51,16 @@ daf_igra_01.SoundControl = () => {
   };
 
 
+
   /* API */
   instance.init = (configObj) => {
     loadAudio(configObj);
   };
+
   instance.play = (id) => {
     playAudio(id);
   };
+
   instance.muteAudio = (isAudioMuted) => {
     muteAudio(isAudioMuted);
   };

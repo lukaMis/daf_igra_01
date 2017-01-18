@@ -14,23 +14,12 @@ daf_igra_01.SpawnControl = (dataObject) => {
   let spawnTimeout;
 
 
+
   const getQuestion = () => {
 
     resetArrays();
-    // console.log(GAME_DATA);
-
-    // getQuestion
-
-    // console.log('********************************* getQuestion', counter);
 
     daf_igra_01.CURRENT_ID = daf_igra_01.getRandomIntInRange(0, GAME_DATA.length-1);
-    // GAME_DATA[daf_igra_01.CURRENT_ID].question;
-
-    // for (var i = 0; i < 100; i++) {
-    //   // console.log( GAME_DATA[daf_igra_01.getRandomIntInRange(0, GAME_DATA.length-1)].question );
-    // }
-
-    // console.log('daf_igra_01.CURRENT_ID',  GAME_DATA[daf_igra_01.CURRENT_ID].question );
 
     populateArrays();
 
@@ -47,12 +36,11 @@ daf_igra_01.SpawnControl = (dataObject) => {
       arrayOfCorrectAnswers.push(GAME_DATA[daf_igra_01.CURRENT_ID].answers[i]);
     }
 
-    // console.log('*****************', daf_igra_01.CURRENT_ID);
     for (let i = 0; i < GAME_DATA.length; i++) {
       if(i === daf_igra_01.CURRENT_ID) {
         continue;
       }
-      // console.log(i);
+
       for (let j = 0; j < GAME_DATA[i].answers.length; j++) {
         arrayOfWrongAnswers.push(GAME_DATA[i].answers[j]);
       }
@@ -62,12 +50,6 @@ daf_igra_01.SpawnControl = (dataObject) => {
   const getCorrectAnswersArray = () => {
     return GAME_DATA[daf_igra_01.CURRENT_ID].answers;
   };
-
-
-  const getObject = () => {
-    return;
-  };
-
 
   const startSpawn = () => {
     // spawnInterval = setInterval(() => {
@@ -107,8 +89,6 @@ daf_igra_01.SpawnControl = (dataObject) => {
       spawn: spawnText
     });
 
-    // $('#gameView .answer').remove();
-    // $('#gameView').append()
     const answerString = 
     `
     <div class="answer" data-id="${idToAssign}">
@@ -211,16 +191,14 @@ daf_igra_01.SpawnControl = (dataObject) => {
     removeAnswer( $(e.currentTarget).parent() );
   };
 
-
   const reset = () => {
     resetArrays();
   };
 
 
+
   /* API */
-  instance.init = () => {
-    
-  };
+  instance.init = () => {};
 
   instance.startSpawn = () => {
     startSpawn();
@@ -236,10 +214,6 @@ daf_igra_01.SpawnControl = (dataObject) => {
 
   instance.getCorrectAnswersArray = () => {
     return getCorrectAnswersArray();
-  };
-
-  instance.getObject = () => {
-    return getObject();
   };
 
   instance.removeAnswer = (answer) => {
@@ -263,7 +237,7 @@ daf_igra_01.SpawnControl = (dataObject) => {
   return instance;
 };
 
-/*
+/* TEMPLATE
 
 <div class="answer" data-id="0">
   <div class="textWrapper">

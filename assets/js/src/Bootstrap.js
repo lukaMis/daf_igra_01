@@ -6,6 +6,7 @@ daf_igra_01.Bootstrap = () => {
   const instance = {};
 
 
+
   const dataHandler = daf_igra_01.DataHandler();
 
   const soundControl = daf_igra_01.SoundControl();
@@ -15,24 +16,17 @@ daf_igra_01.Bootstrap = () => {
     daf_igra_01.removePreloader();
   });
 
-
   const feedbacView = daf_igra_01.FeedbackView({
     data: dataHandler.getFeedbackData()
   });
-  $(feedbacView).on('onFeedbackViewClicked', (e) => {
-    console.log('Restart teh game');
-  });
-
 
   const infoBar = daf_igra_01.InfoBar({
     data : dataHandler.getGameViewData()
   });
 
-
   const spawnControl = daf_igra_01.SpawnControl({
     data: dataHandler.getGameData()
   });
-
 
   const particles = daf_igra_01.Particles({
     parent : '#contentWrapper',
@@ -40,7 +34,6 @@ daf_igra_01.Bootstrap = () => {
     duration : 1,
     type : 'sphere'
   });
-
 
   const gameControl = daf_igra_01.GameControl({
     infoBar: infoBar,
@@ -50,7 +43,6 @@ daf_igra_01.Bootstrap = () => {
     soundControl: soundControl
   });
 
-
   const titleView = daf_igra_01.TitleView({
     data: dataHandler.getTitleData()
   });
@@ -59,9 +51,9 @@ daf_igra_01.Bootstrap = () => {
     gameControl.init();
   });
 
-
   soundControl.init( dataHandler.getAudioData() );
 
+  
   
   /* API */
   instance.init = () => {};

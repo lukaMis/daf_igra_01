@@ -1,3 +1,6 @@
+
+- Change colors to colors defined in wrike
+
 - Add mute button to info bar
 DONE
 

@@ -26,19 +26,17 @@ daf_igra_01.WRONG_ANSWER_POINTS = 10;
 
 
 
-
 daf_igra_01.getPercentChance = (maxPercent) => {
   return (Math.floor(Math.random() * 100) > maxPercent) ? false:true;
 };
 
 daf_igra_01.getRandomIntInRange = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+};
 
 daf_igra_01.getRandomInRange = (min, max) => {
   return Math.random() * (max - min) + min;
 };
-
 
 daf_igra_01.removePreloader = () => {
   $('body').removeClass('loading');

@@ -6,6 +6,8 @@ daf_igra_01.TitleView = (dataObject) => {
   const instance = {};
   instance.data = dataObject.data;
 
+
+
   const createView = () => {
     const viewString = 
     `
@@ -23,7 +25,6 @@ daf_igra_01.TitleView = (dataObject) => {
     $('#contentWrapper #titleView .button').one('click', onButtonClick);
   };
 
-
   const onButtonClick = (e) => {
     $(instance).trigger('onTitleViewClicked');
     $('#contentWrapper #titleView').remove();
@@ -40,7 +41,8 @@ daf_igra_01.TitleView = (dataObject) => {
   return instance;
 };
 
-/*
+/* TEMPLATE
+
 <div id="titleView" class="view">
   <div class="viewContent">
     <p class="annotation" data-i18n="[html]titleView.text"></p>
@@ -49,4 +51,5 @@ daf_igra_01.TitleView = (dataObject) => {
     </div>
   </div>
 </div>
+
 */

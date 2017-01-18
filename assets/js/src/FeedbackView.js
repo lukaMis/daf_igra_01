@@ -4,9 +4,9 @@ daf_igra_01.FeedbackView = (dataObject) => {
 
   'use strict';
   const instance = {};
-  // instance.data = dataObject.data;
 
   const INSTANCE_DATA = dataObject.data;
+
 
 
   const createView = (pointsAchived) => {
@@ -32,7 +32,6 @@ daf_igra_01.FeedbackView = (dataObject) => {
     $('#contentWrapper #feedbackView .button').one('click', onButtonClick);
   };
 
-
   const onButtonClick = (e) => {
     $('#contentWrapper #feedbackView').remove();
     $(instance).trigger('onFeedbackViewClicked');
@@ -49,7 +48,9 @@ daf_igra_01.FeedbackView = (dataObject) => {
   return instance;
 };
 
-/*
+
+/* TEMPLATE
+
 <!-- <div id="feedbackView" class="view">
           <div class="viewContent">
             <p class="annotation" data-i18n="[html]feedbackView.text"></p>

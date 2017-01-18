@@ -7,14 +7,12 @@
 // @prepros-append FeedbackView.js
 // @prepros-append InfoBar.js
 // @prepros-append SpawnControl.js
-// @prepros-append TitleControl.js
 // @prepros-append GameControl.js
 
 // @prepros-append SoundControl.js
 
 // @prepros-append Particles.js
 
- // @prepros-append Controller.js
  
  // @prepros-append Bootstrap.js
 
