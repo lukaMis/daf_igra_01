@@ -51,7 +51,9 @@
   function oni18nComplete(e) {
     FastClick.attach(document.body);
     // checkForCookies();
-    daf_igra_01.Bootstrap();
+    daf_igra_01.Bootstrap({
+      theme: 0
+    });
     // $(document).on('keypress', showDevConsole);
   };
 

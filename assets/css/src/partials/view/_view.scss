@@ -11,7 +11,6 @@
 
   padding: 0 160px;
 
-  background-color: $backgroundColor;
   text-align: center;
 
   z-index: 0;
@@ -23,6 +22,26 @@
   justify-content: center;
   align-items: center;
 }
+
+
+#wrapper .view {
+  background-color: $backgroundColor;
+}
+
+// THEMES
+#wrapper[data-theme="0"] .view {
+  background-color: $backgroundColor_0;
+}
+#wrapper[data-theme="1"] .view {
+  background-color: $backgroundColor_1;
+}
+#wrapper[data-theme="2"] .view {
+  background-color: $backgroundColor_2;
+}
+#wrapper[data-theme="3"] .view {
+  background-color: $backgroundColor_3;
+}
+
 
 
 .view p {
@@ -41,6 +60,7 @@
   background-color: rgb(255, 255, 255);
   opacity: 0;
 }
+
 
 .view .annotation {
   margin-bottom: 20px;

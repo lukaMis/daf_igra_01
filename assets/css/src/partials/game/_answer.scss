@@ -25,14 +25,29 @@
 #gameView .answer .textWrapper p {
   font-size: 25px;
   font-size: 36px;
-  background-color: $backgroundColor;
   padding: 4px 6px;
   position: relative;
 }
 
-.answer {
-  // border: 1px solid red;
+#wrapper #gameView .answer .textWrapper p {
+  background-color: $backgroundColor;
 }
+
+// THEMES
+#wrapper[data-theme="0"] #gameView .answer .textWrapper p {
+  background-color: $backgroundColor_0;
+}
+#wrapper[data-theme="1"] #gameView .answer .textWrapper p {
+  background-color: $backgroundColor_1;
+}
+#wrapper[data-theme="2"] #gameView .answer .textWrapper p {
+  background-color: $backgroundColor_2;
+}
+#wrapper[data-theme="3"] #gameView .answer .textWrapper p {
+  background-color: $backgroundColor_3;
+}
+
+
 
 .answer[data-clickable="false"] {
   pointer-events: none;

@@ -1,6 +1,7 @@
 
 
 // @prepros-append entry.js
+// @prepros-append ThemeControler.js
 // @prepros-append DataHandler.js
 
 // @prepros-append TitleView.js

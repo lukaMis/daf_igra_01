@@ -1,10 +1,13 @@
 
 
-daf_igra_01.Bootstrap = () => {
+daf_igra_01.Bootstrap = (configObject) => {
 
   'use strict';
   const instance = {};
 
+
+
+  const themeControler = daf_igra_01.ThemeControler(configObject.theme);
 
 
   const dataHandler = daf_igra_01.DataHandler();
