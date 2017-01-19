@@ -1,4 +1,5 @@
 - add themes support
+DONE
 
 - Change colors to colors defined in wrike
 DONE
