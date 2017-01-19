@@ -1,3 +1,4 @@
+- add themes support
 
 - Change colors to colors defined in wrike
 DONE
