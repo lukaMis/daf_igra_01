@@ -1,6 +1,6 @@
 
 
-daf_igra_01.GameControl = (dataObject) => {
+FallingWords.GameControl = (dataObject) => {
 
   'use strict';
   const instance = {};
@@ -36,12 +36,12 @@ daf_igra_01.GameControl = (dataObject) => {
   };
 
   const makeNewQuestionTimeout = () => {
-    console.log( 'daf_igra_01.NEW_QUESTION_TIMER_IN_SECONDS', daf_igra_01.NEW_QUESTION_TIMER_IN_SECONDS );
+    console.log( 'FallingWords.NEW_QUESTION_TIMER_IN_SECONDS', FallingWords.NEW_QUESTION_TIMER_IN_SECONDS );
     newQuestionTimeout = setTimeout(() => {
       infoBar.setQuestion( spawnControl.getQuestion() );
       soundControl.play('change');
       makeNewQuestionTimeout();
-    }, daf_igra_01.NEW_QUESTION_TIMER_IN_SECONDS * 1000);
+    }, FallingWords.NEW_QUESTION_TIMER_IN_SECONDS * 1000);
   };
 
   const addEventListnerForClicking = () => {
@@ -107,7 +107,7 @@ daf_igra_01.GameControl = (dataObject) => {
   };
 
   const checkForMatch = (clickedAnswer) => {
-    // if(clickedAnswer.id === daf_igra_01.CURRENT_ID) {
+    // if(clickedAnswer.id === FallingWords.CURRENT_ID) {
     //   handleCorrect(clickedAnswer);
     // } else {
     //   handleWrong(clickedAnswer);

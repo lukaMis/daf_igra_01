@@ -51,7 +51,7 @@
   function oni18nComplete(e) {
     FastClick.attach(document.body);
     // checkForCookies();
-    daf_igra_01.Bootstrap({
+    FallingWords.Bootstrap({
       theme: 0
     });
     // $(document).on('keypress', showDevConsole);
@@ -91,48 +91,48 @@
     console.log('form clicked');
     updateGameObject();
     $('#devView').remove();
-    // daf_igra_01.Bootstrap();
+    // FallingWords.Bootstrap();
     $(document).on('keypress', showDevConsole);
-    console.log(daf_igra_01);
+    console.log(FallingWords);
   }
 
 
   function updateGameObject() {
-    daf_igra_01.GAME_TIME_IN_SECONDS = parseFloat(gameTime[0].value);
-    daf_igra_01.NEW_QUESTION_TIMER_IN_SECONDS = parseFloat(questionTime[0].value);
+    FallingWords.GAME_TIME_IN_SECONDS = parseFloat(gameTime[0].value);
+    FallingWords.NEW_QUESTION_TIMER_IN_SECONDS = parseFloat(questionTime[0].value);
 
-    daf_igra_01.SPAWN_TIME_IN_SECONDS = parseFloat(spawnTime[0].value);
-    daf_igra_01.ANSWER_FALL_TIME = parseFloat(fallTime[0].value);
-    daf_igra_01.MAX_ROTATION = parseFloat(maxRotation[0].value);
+    FallingWords.SPAWN_TIME_IN_SECONDS = parseFloat(spawnTime[0].value);
+    FallingWords.ANSWER_FALL_TIME = parseFloat(fallTime[0].value);
+    FallingWords.MAX_ROTATION = parseFloat(maxRotation[0].value);
 
-    daf_igra_01.CORRECT_ANSWER_POINTS = parseFloat(pointsUp[0].value);
-    daf_igra_01.WRONG_ANSWER_POINTS = parseFloat(pointsDown[0].value);
+    FallingWords.CORRECT_ANSWER_POINTS = parseFloat(pointsUp[0].value);
+    FallingWords.WRONG_ANSWER_POINTS = parseFloat(pointsDown[0].value);
 
-    daf_igra_01.EASING_FUNCTION_TO_USE = fallMethod[0].value;
+    FallingWords.EASING_FUNCTION_TO_USE = fallMethod[0].value;
 
     let spawnPercentForCorrect = parseFloat(spawnPercent[0].value);
     spawnPercentForCorrect = (spawnPercentForCorrect > 100) ? 100:spawnPercentForCorrect;
     spawnPercentForCorrect = (spawnPercentForCorrect <= 0) ? -1:spawnPercentForCorrect;
-    daf_igra_01.CORRECT_SPAWN_PERCENT = spawnPercentForCorrect;
+    FallingWords.CORRECT_SPAWN_PERCENT = spawnPercentForCorrect;
 
     setCookies();
   };
 
 
   function setCookies() {
-    Cookies.set('gameTime', daf_igra_01.GAME_TIME_IN_SECONDS);
-    Cookies.set('questionTime', daf_igra_01.NEW_QUESTION_TIMER_IN_SECONDS);
+    Cookies.set('gameTime', FallingWords.GAME_TIME_IN_SECONDS);
+    Cookies.set('questionTime', FallingWords.NEW_QUESTION_TIMER_IN_SECONDS);
 
-    Cookies.set('spawnTime', daf_igra_01.SPAWN_TIME_IN_SECONDS);
-    Cookies.set('fallTime', daf_igra_01.ANSWER_FALL_TIME);
-    Cookies.set('maxRotation', daf_igra_01.MAX_ROTATION);
+    Cookies.set('spawnTime', FallingWords.SPAWN_TIME_IN_SECONDS);
+    Cookies.set('fallTime', FallingWords.ANSWER_FALL_TIME);
+    Cookies.set('maxRotation', FallingWords.MAX_ROTATION);
 
-    Cookies.set('pointsUp', daf_igra_01.CORRECT_ANSWER_POINTS);
-    Cookies.set('pointsDown', daf_igra_01.WRONG_ANSWER_POINTS);
+    Cookies.set('pointsUp', FallingWords.CORRECT_ANSWER_POINTS);
+    Cookies.set('pointsDown', FallingWords.WRONG_ANSWER_POINTS);
 
-    Cookies.set('fallMethod', daf_igra_01.EASING_FUNCTION_TO_USE);
+    Cookies.set('fallMethod', FallingWords.EASING_FUNCTION_TO_USE);
 
-    Cookies.set('spawnPercent', daf_igra_01.CORRECT_SPAWN_PERCENT);
+    Cookies.set('spawnPercent', FallingWords.CORRECT_SPAWN_PERCENT);
   };
 
   function checkForCookiesForForm() {
@@ -187,19 +187,19 @@
 
   function fillTheGameData() {
 
-    daf_igra_01.GAME_TIME_IN_SECONDS = parseInt(Cookies.get('gameTime'));
-    daf_igra_01.NEW_QUESTION_TIMER_IN_SECONDS = parseInt(Cookies.get('questionTime'));
+    FallingWords.GAME_TIME_IN_SECONDS = parseInt(Cookies.get('gameTime'));
+    FallingWords.NEW_QUESTION_TIMER_IN_SECONDS = parseInt(Cookies.get('questionTime'));
 
-    daf_igra_01.SPAWN_TIME_IN_SECONDS = parseFloat(Cookies.get('spawnTime'));
-    daf_igra_01.ANSWER_FALL_TIME = parseInt(Cookies.get('fallTime'));
-    daf_igra_01.MAX_ROTATION = parseInt(Cookies.get('maxRotation'));
+    FallingWords.SPAWN_TIME_IN_SECONDS = parseFloat(Cookies.get('spawnTime'));
+    FallingWords.ANSWER_FALL_TIME = parseInt(Cookies.get('fallTime'));
+    FallingWords.MAX_ROTATION = parseInt(Cookies.get('maxRotation'));
 
-    daf_igra_01.CORRECT_ANSWER_POINTS = parseInt(Cookies.get('pointsUp'));
-    daf_igra_01.WRONG_ANSWER_POINTS = parseInt(Cookies.get('pointsDown'));
+    FallingWords.CORRECT_ANSWER_POINTS = parseInt(Cookies.get('pointsUp'));
+    FallingWords.WRONG_ANSWER_POINTS = parseInt(Cookies.get('pointsDown'));
 
-    daf_igra_01.EASING_FUNCTION_TO_USE = Cookies.get('fallMethod');
+    FallingWords.EASING_FUNCTION_TO_USE = Cookies.get('fallMethod');
 
-    daf_igra_01.CORRECT_SPAWN_PERCENT = parseInt(Cookies.get('spawnPercent'));
+    FallingWords.CORRECT_SPAWN_PERCENT = parseInt(Cookies.get('spawnPercent'));
 
     console.log('fillTheGameData DONE');
   };

@@ -1,6 +1,6 @@
 
 
-daf_igra_01.TitleView = (dataObject) => {
+FallingWords.TitleView = (dataObject) => {
 
   'use strict';
   const instance = {};

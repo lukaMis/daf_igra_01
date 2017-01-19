@@ -1,6 +1,6 @@
 
 
-daf_igra_01.DataHandler = () => {
+FallingWords.DataHandler = () => {
 
   'use strict';
   const instance = {};

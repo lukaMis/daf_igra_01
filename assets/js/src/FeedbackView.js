@@ -1,6 +1,6 @@
+  
 
-
-daf_igra_01.FeedbackView = (dataObject) => {
+FallingWords.FeedbackView = (dataObject) => {
 
   'use strict';
   const instance = {};

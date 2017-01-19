@@ -1,6 +1,6 @@
 
 
-daf_igra_01.SoundControl = () => {
+FallingWords.SoundControl = () => {
 
   'use strict';
   const instance = {};

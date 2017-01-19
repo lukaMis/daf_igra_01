@@ -1,44 +1,44 @@
 
 
-daf_igra_01.Bootstrap = (configObject) => {
+FallingWords.Bootstrap = (configObject) => {
 
   'use strict';
   const instance = {};
 
 
 
-  const themeControler = daf_igra_01.ThemeControler(configObject.theme);
+  const themeControler = FallingWords.ThemeControler(configObject.theme);
 
 
-  const dataHandler = daf_igra_01.DataHandler();
+  const dataHandler = FallingWords.DataHandler();
 
-  const soundControl = daf_igra_01.SoundControl();
+  const soundControl = FallingWords.SoundControl();
   $(soundControl).on('onAudioLoadComplete', (e) => {
     console.log('from bootstrap onAudioLoadComplete');
     titleView.init();
-    daf_igra_01.removePreloader();
+    FallingWords.removePreloader();
   });
 
-  const feedbacView = daf_igra_01.FeedbackView({
+  const feedbacView = FallingWords.FeedbackView({
     data: dataHandler.getFeedbackData()
   });
 
-  const infoBar = daf_igra_01.InfoBar({
+  const infoBar = FallingWords.InfoBar({
     data : dataHandler.getGameViewData()
   });
 
-  const spawnControl = daf_igra_01.SpawnControl({
+  const spawnControl = FallingWords.SpawnControl({
     data: dataHandler.getGameData()
   });
 
-  const particles = daf_igra_01.Particles({
+  const particles = FallingWords.Particles({
     parent : '#contentWrapper',
     numberOfParticles : 10,
     duration : 1,
     type : 'sphere'
   });
 
-  const gameControl = daf_igra_01.GameControl({
+  const gameControl = FallingWords.GameControl({
     infoBar: infoBar,
     spawnControl: spawnControl,
     feedbacView: feedbacView,
@@ -46,7 +46,7 @@ daf_igra_01.Bootstrap = (configObject) => {
     soundControl: soundControl
   });
 
-  const titleView = daf_igra_01.TitleView({
+  const titleView = FallingWords.TitleView({
     data: dataHandler.getTitleData()
   });
   $(titleView).on('onTitleViewClicked', (e) => {

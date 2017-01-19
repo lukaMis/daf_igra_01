@@ -1,6 +1,6 @@
 
 
-daf_igra_01.Particles = (configObject) => {
+FallingWords.Particles = (configObject) => {
 
   'use strict';
   const instance = {};
@@ -40,19 +40,19 @@ daf_igra_01.Particles = (configObject) => {
   };
 
   const moveThemParticles = (parent) => {
-    let _getDuration = daf_igra_01.getRandomInRange(0.35, 0.7);
-    // let _getRandomEase = easeArray[daf_igra_01.getRandomIntInRange(0, easeArray.length-1)];
+    let _getDuration = FallingWords.getRandomInRange(0.35, 0.7);
+    // let _getRandomEase = easeArray[FallingWords.getRandomIntInRange(0, easeArray.length-1)];
     let _getRandomEase = easeArray[1];
 
     parent.find('.particle').each((index, particle) => {
 
-      let _getX = daf_igra_01.getRandomIntInRange(-daf_igra_01.PARTICLE_MAX_OFFSET, daf_igra_01.PARTICLE_MAX_OFFSET);
-      let _getY = daf_igra_01.getRandomIntInRange(-daf_igra_01.PARTICLE_MAX_OFFSET, daf_igra_01.PARTICLE_MAX_OFFSET);
-      let _getR = daf_igra_01.getRandomIntInRange(0, 720);
-      let _getScale = daf_igra_01.getRandomInRange(0.1, 0.2);
-      let _getRed = daf_igra_01.getRandomIntInRange(60, 255);
-      let _getGreen = daf_igra_01.getRandomIntInRange(60, 255);
-      let _getBlue = daf_igra_01.getRandomIntInRange(60, 255);
+      let _getX = FallingWords.getRandomIntInRange(-FallingWords.PARTICLE_MAX_OFFSET, FallingWords.PARTICLE_MAX_OFFSET);
+      let _getY = FallingWords.getRandomIntInRange(-FallingWords.PARTICLE_MAX_OFFSET, FallingWords.PARTICLE_MAX_OFFSET);
+      let _getR = FallingWords.getRandomIntInRange(0, 720);
+      let _getScale = FallingWords.getRandomInRange(0.1, 0.2);
+      let _getRed = FallingWords.getRandomIntInRange(60, 255);
+      let _getGreen = FallingWords.getRandomIntInRange(60, 255);
+      let _getBlue = FallingWords.getRandomIntInRange(60, 255);
 
       $(particle).css({
         '-webkit-transform': 'translate(' + _getX + 'px, ' + _getY + 'px)' + ' rotate(' + _getR + 'deg)' + ' scale(' + _getScale + ')',
@@ -76,7 +76,7 @@ daf_igra_01.Particles = (configObject) => {
 
   const getScale = () => {
     // style="transform: translate(0px, 30px) rotate(1deg); transition-duration: 10s; transition-timing-function: linear;"
-    return `scale( ${daf_igra_01.getRandomIntInRange(1, 10)} )`;
+    return `scale( ${FallingWords.getRandomIntInRange(1, 10)} )`;
   };
   
 

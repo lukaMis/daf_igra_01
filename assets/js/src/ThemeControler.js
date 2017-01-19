@@ -1,6 +1,6 @@
 
 
-daf_igra_01.ThemeControler = (themeToApply) => {
+FallingWords.ThemeControler = (themeToApply) => {
 
   'use strict';
   const instance = {};

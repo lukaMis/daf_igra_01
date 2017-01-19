@@ -1,6 +1,6 @@
 
 
-daf_igra_01.InfoBar = (dataObject) => {
+FallingWords.InfoBar = (dataObject) => {
 
   'use strict';
   const instance = {};
@@ -20,7 +20,7 @@ daf_igra_01.InfoBar = (dataObject) => {
         <p id="time">
           <span id="m">00</span>:<span id="s">00</span>
         </p>
-        <div id="muteButton" data-mute="${daf_igra_01.AUDIO_IS_MUTED}"></div>
+        <div id="muteButton" data-mute="${FallingWords.AUDIO_IS_MUTED}"></div>
         <p id="question">QUESTION</p>
         <p id="score"><span id="pointsInt">0</span> <span>${DATA.points}</span></p>
       </div>
@@ -40,7 +40,7 @@ daf_igra_01.InfoBar = (dataObject) => {
     .text(scoreObj.score)
     .attr({
       'data-increment' : '',
-      'data-score' : scoreObj.increment ? daf_igra_01.CORRECT_ANSWER_POINTS:daf_igra_01.WRONG_ANSWER_POINTS
+      'data-score' : scoreObj.increment ? FallingWords.CORRECT_ANSWER_POINTS:FallingWords.WRONG_ANSWER_POINTS
     });
 
     setTimeout(() => {
@@ -51,7 +51,7 @@ daf_igra_01.InfoBar = (dataObject) => {
   };
 
   const incrementScore = () => {
-    currentScore = currentScore + daf_igra_01.CORRECT_ANSWER_POINTS;
+    currentScore = currentScore + FallingWords.CORRECT_ANSWER_POINTS;
     setScore({
       score:currentScore,
       increment: true
@@ -59,7 +59,7 @@ daf_igra_01.InfoBar = (dataObject) => {
   };
 
   const decrementScore = () => {
-    currentScore = currentScore - daf_igra_01.WRONG_ANSWER_POINTS;
+    currentScore = currentScore - FallingWords.WRONG_ANSWER_POINTS;
     currentScore = currentScore < 0 ? 0:currentScore;
     setScore({
       score:currentScore,
@@ -80,7 +80,7 @@ daf_igra_01.InfoBar = (dataObject) => {
 
   const timerIntervalTick = () => {
 
-    if(timerCounter < daf_igra_01.GAME_TIME_IN_SECONDS + 1) {
+    if(timerCounter < FallingWords.GAME_TIME_IN_SECONDS + 1) {
       updateTimer(timerCounter);
       timerCounter++;
     } else {
@@ -98,8 +98,8 @@ daf_igra_01.InfoBar = (dataObject) => {
 
   const updateTimer = (counter) => {
 
-    let secLeft = (daf_igra_01.GAME_TIME_IN_SECONDS - counter) % 60;
-    let minLeft = Math.floor((daf_igra_01.GAME_TIME_IN_SECONDS - counter) / 60);
+    let secLeft = (FallingWords.GAME_TIME_IN_SECONDS - counter) % 60;
+    let minLeft = Math.floor((FallingWords.GAME_TIME_IN_SECONDS - counter) / 60);
 
     secLeft = '0' + secLeft;
     const sec = secLeft.slice(-2);
@@ -112,12 +112,12 @@ daf_igra_01.InfoBar = (dataObject) => {
   };
 
   const onMuteButtonClick = (e) => {
-    daf_igra_01.AUDIO_IS_MUTED = !daf_igra_01.AUDIO_IS_MUTED;
+    FallingWords.AUDIO_IS_MUTED = !FallingWords.AUDIO_IS_MUTED;
     $(instance).trigger('onAudioMute', {
-      muteAudio: daf_igra_01.AUDIO_IS_MUTED
+      muteAudio: FallingWords.AUDIO_IS_MUTED
     });
     $('#muteButton').attr({
-      'data-mute': daf_igra_01.AUDIO_IS_MUTED
+      'data-mute': FallingWords.AUDIO_IS_MUTED
     });
   };
 
